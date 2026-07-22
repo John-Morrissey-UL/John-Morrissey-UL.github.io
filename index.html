@@ -8,6 +8,14 @@
 <meta property="og:title" content="John Morrissey — Brightspace tooling">
 <meta property="og:description" content="Self-contained, zero-dependency tools for Brightspace (D2L).">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://john-morrissey-ul.github.io/">
+<meta property="og:image" content="https://john-morrissey-ul.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="John Morrissey — Brightspace tooling">
+<meta name="twitter:description" content="Zero-dependency, single-file tools for Brightspace (D2L).">
+<meta name="twitter:image" content="https://john-morrissey-ul.github.io/og-image.jpg">
 <meta name="theme-color" content="#eef4f1">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232563eb'/><text y='68' x='50' text-anchor='middle' font-size='54' font-family='monospace' fill='%23ffffff'>J</text></svg>">
 
@@ -190,6 +198,31 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   html{scroll-behavior:auto}
 }
 
+
+/* Interactive: shot button, video, lightbox */
+.shot{display:block;border:0;border-bottom:1px solid var(--stroke);padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;position:relative}
+.shot .shotvid{width:100%;height:100%;object-fit:cover;display:block}
+.shot.gone{display:none}
+.playbadge{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;padding:5px 10px;border-radius:999px;background:rgba(37,99,235,.94);color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.4);pointer-events:none}
+.shotcount,.expand{position:absolute;right:12px;bottom:12px;font-family:var(--mono);font-size:.66rem;padding:5px 9px;border-radius:8px;background:rgba(14,28,61,.72);color:#fff;opacity:0;transition:opacity .25s;pointer-events:none}
+.expand{font-size:.95rem;padding:3px 8px}
+.card:hover .shotcount,.card:hover .expand{opacity:1}
+.grid{perspective:1200px}
+.card{transform-style:preserve-3d}
+.banner-wrap{overflow:hidden}
+.banner{will-change:transform}
+
+.lb{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:4vw;background:rgba(8,14,30,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lb[hidden]{display:none}
+.lb-stage{max-width:92vw;max-height:86vh;display:flex;align-items:center;justify-content:center}
+.lb-stage img,.lb-stage video{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#fff}
+.lb-close{position:absolute;top:18px;right:20px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:1.05rem;cursor:pointer;transition:background .2s}
+.lb-close:hover{background:rgba(255,255,255,.18)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;transition:background .2s}
+.lb-nav:hover{background:rgba(255,255,255,.18)}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.78rem;color:rgba(255,255,255,.82)}
+@media(max-width:560px){.lb-nav{width:42px;height:42px;font-size:1.35rem}}
 </style>
 </head>
 <body>
@@ -326,6 +359,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   "use strict";
 
   var USER = "John-Morrissey-UL";
+  var REDUCE = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   /* ── Hand-written descriptions & tags, keyed by repo name (lowercased).
         Anything not listed here still renders, using GitHub's own description. ── */
@@ -394,6 +428,15 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
     {name:"admin-accelerator-suite",language:"HTML",stargazers_count:0,pushed_at:"2026-06-23T11:29:35Z",html_url:"https://github.com/John-Morrissey-UL/admin-accelerator-suite",description:"One-file Brightspace toolkit for bulk groups, grades/feedback upload, and discussion & checklist reporting."}
   ];
 
+  /* Per-tool media for the lightbox (raw screenshots + optional demo video). */
+  var MEDIA = {
+    "brightspace_deadline_radar":{video:"media/deadline-radar.mp4",imgs:["media/deadline-radar/1.jpg","media/deadline-radar/2.jpg","media/deadline-radar/3.jpg","media/deadline-radar/4.jpg"]},
+    "brightspace_class_faces":{imgs:["media/class-faces/1.jpg"]},
+    "brightspace_course_status_widget":{imgs:["media/course-status/1.jpg","media/course-status/2.jpg"]},
+    "admin-accelerator-suite":{imgs:["media/admin-accelerator/1.jpg"]},
+    "brightspace-assignment-grouper":{imgs:["media/assignment-grouper/1.jpg"]}
+  };
+
   var LANG_COLOR = {HTML:"#e34c26",Python:"#3572A5",JavaScript:"#f1e05a",CSS:"#563d7c",TypeScript:"#3178c6"};
 
   var $  = function(s,r){return (r||document).querySelector(s)};
@@ -439,9 +482,15 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
     var lang  = r.language || "—";
     var color = LANG_COLOR[lang] || "#6b7484";
 
-    var shot = c.shot
-      ? '<div class="shot"><img src="screenshots/'+esc(c.shot)+'" alt="Screenshot of '+esc(title)+'" loading="lazy" onerror="this.parentNode.remove()"></div>'
-      : '';
+    var med = MEDIA[r.name.toLowerCase()], shot='';
+    if(c.shot){
+      var inner = (med && med.video)
+        ? '<video class="shotvid" muted loop playsinline preload="none" poster="screenshots/'+esc(c.shot)+'"><source src="'+esc(med.video)+'" type="video/mp4"></video><span class="playbadge">\u25B6 demo</span>'
+        : '<img src="screenshots/'+esc(c.shot)+'" alt="Screenshot of '+esc(title)+'" loading="lazy" onerror="this.closest(\'.shot\').classList.add(\'gone\')">';
+      var n = med ? (med.imgs?med.imgs.length:0)+(med.video?1:0) : 0;
+      shot = '<button type="button" class="shot" data-repo="'+esc(r.name.toLowerCase())+'" aria-label="View '+esc(title)+' screenshots">'+
+             inner + (n>1?'<span class="shotcount">'+n+' shots</span>':'<span class="expand">\u2922</span>') + '</button>';
+    }
 
     return '<article class="card'+(c.featured?" featured":"")+'" data-lang="'+esc(lang)+'" tabindex="0">'+
       shot+
@@ -465,13 +514,25 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
 
   function render(list){
     grid.innerHTML = list.map(cardHTML).join("");
-    // cursor-tracking glow
     Array.prototype.forEach.call(grid.children,function(el){
       el.addEventListener("mousemove",function(e){
         var b=el.getBoundingClientRect();
         el.style.setProperty("--mx",(e.clientX-b.left)+"px");
         el.style.setProperty("--my",(e.clientY-b.top)+"px");
+        if(!REDUCE){
+          var px=(e.clientX-b.left)/b.width-.5, py=(e.clientY-b.top)/b.height-.5;
+          el.style.transition="transform .08s var(--ease)";
+          el.style.transform="translateY(-4px) rotateX("+(-py*5).toFixed(2)+"deg) rotateY("+(px*5).toFixed(2)+"deg)";
+        }
       });
+      el.addEventListener("mouseleave",function(){
+        el.style.transition=""; el.style.transform="";
+        var v=el.querySelector(".shotvid"); if(v) v.pause();
+      });
+      var vid=el.querySelector(".shotvid");
+      if(vid) el.addEventListener("mouseenter",function(){ var p=vid.play(); if(p&&p.catch) p.catch(function(){}); });
+      var sb=el.querySelector(".shot");
+      if(sb) sb.addEventListener("click",function(){ openLightbox(sb.getAttribute("data-repo")); });
     });
   }
 
@@ -493,13 +554,24 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
     });
   }
 
+  function countUp(el,target,dur){
+    if(!el) return;
+    if(REDUCE || target<=0){ el.textContent=String(target); return; }
+    var t0=performance.now();
+    (function step(now){
+      var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3);
+      el.textContent=String(Math.round(target*e));
+      if(p<1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
   function setStats(list){
     var stars = list.reduce(function(a,r){return a+(r.stargazers_count||0)},0);
     var newest = list.reduce(function(a,r){
       return (!a || new Date(r.pushed_at)>new Date(a)) ? r.pushed_at : a;
     },null);
-    $('[data-stat="repos"]').textContent   = list.length;
-    $('[data-stat="stars"]').textContent   = stars;
+    countUp($('[data-stat="repos"]'), list.length, 1000);
+    countUp($('[data-stat="stars"]'), stars, 1000);
     $('[data-stat="updated"]').textContent = ago(newest);
   }
 
@@ -547,8 +619,55 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   observeReveal();
 
   /* ── Sticky nav border ──────────────────────────────── */
-  var nav = $("header.nav");
-  addEventListener("scroll",function(){ nav.classList.toggle("stuck", scrollY > 8) },{passive:true});
+  var nav = $("header.nav"), bannerEl = document.querySelector(".banner");
+  addEventListener("scroll",function(){
+    nav.classList.toggle("stuck", scrollY > 8);
+    if(bannerEl && !REDUCE) bannerEl.style.transform="scale("+(1+Math.min(scrollY,700)*0.00018)+")";
+  },{passive:true});
+
+  /* Lightbox */
+  var lbEl,lbStage,lbCount,lbPrev,lbNext,lbItems=[],lbIdx=0;
+  function buildLightbox(){
+    lbEl=document.createElement("div"); lbEl.className="lb"; lbEl.hidden=true;
+    lbEl.innerHTML='<button class="lb-close" aria-label="Close">\u2715</button>'+
+      '<button class="lb-nav lb-prev" aria-label="Previous">\u2039</button>'+
+      '<div class="lb-stage"></div>'+
+      '<button class="lb-nav lb-next" aria-label="Next">\u203A</button>'+
+      '<div class="lb-count"></div>';
+    document.body.appendChild(lbEl);
+    lbStage=lbEl.querySelector(".lb-stage"); lbCount=lbEl.querySelector(".lb-count");
+    lbPrev=lbEl.querySelector(".lb-prev"); lbNext=lbEl.querySelector(".lb-next");
+    lbEl.querySelector(".lb-close").addEventListener("click",closeLightbox);
+    lbPrev.addEventListener("click",function(){lbShow(lbIdx-1)});
+    lbNext.addEventListener("click",function(){lbShow(lbIdx+1)});
+    lbEl.addEventListener("click",function(e){ if(e.target===lbEl) closeLightbox(); });
+    addEventListener("keydown",function(e){
+      if(lbEl.hidden) return;
+      if(e.key==="Escape") closeLightbox();
+      else if(e.key==="ArrowLeft") lbShow(lbIdx-1);
+      else if(e.key==="ArrowRight") lbShow(lbIdx+1);
+    });
+  }
+  function openLightbox(repo){
+    var m=MEDIA[repo]; if(!m) return;
+    lbItems=[]; if(m.video) lbItems.push({t:"video",s:m.video});
+    (m.imgs||[]).forEach(function(s){lbItems.push({t:"img",s:s})});
+    if(!lbItems.length) return;
+    lbShow(0); lbEl.hidden=false; document.body.style.overflow="hidden";
+    lbEl.querySelector(".lb-close").focus();
+  }
+  function closeLightbox(){ lbEl.hidden=true; lbStage.innerHTML=""; document.body.style.overflow=""; }
+  function lbShow(i){
+    lbIdx=(i+lbItems.length)%lbItems.length; var it=lbItems[lbIdx];
+    lbStage.innerHTML = it.t==="video"
+      ? '<video src="'+it.s+'" controls autoplay loop muted playsinline></video>'
+      : '<img src="'+it.s+'" alt="">';
+    var multi=lbItems.length>1;
+    lbPrev.style.display=lbNext.style.display=multi?"":"none";
+    lbCount.style.display=multi?"":"none";
+    lbCount.textContent=(lbIdx+1)+" / "+lbItems.length;
+  }
+  buildLightbox();
 
   $("#yr").textContent = new Date().getFullYear();
 })();
