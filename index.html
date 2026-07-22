@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>John Morrissey — Brightspace tooling</title>
+<meta name="description" content="Self-contained, zero-dependency tools for Brightspace (D2L). Single-file widgets built on Brightspace's own APIs.">
+<meta property="og:title" content="John Morrissey — Brightspace tooling">
+<meta property="og:description" content="Self-contained, zero-dependency tools for Brightspace (D2L).">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07080b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b0d12'/><text y='68' x='50' text-anchor='middle' font-size='54' font-family='monospace' fill='%2364d2ff'>J</text></svg>">
+
+<style>
+/* ─────────────────────────────────────────────────────────────
+   Tokens
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --bg:#07080b;
+  --bg-soft:#0b0d12;
+  --surface:rgba(255,255,255,.035);
+  --surface-2:rgba(255,255,255,.055);
+  --stroke:rgba(255,255,255,.09);
+  --stroke-2:rgba(255,255,255,.16);
+  --text:#e8ecf3;
+  --text-dim:#98a2b3;
+  --text-faint:#6b7484;
+  --accent:#64d2ff;
+  --accent-2:#a78bfa;
+  --accent-3:#4ade80;
+  --radius:18px;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,"JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+  --sans:"Inter var",Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --avatar:url("data:image/jpeg;base64,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");
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(100,210,255,.28)}
+
+/* ── Ambient background ───────────────────────────────────── */
+.bg-fx{position:fixed;inset:0;z-index:-2;pointer-events:none}
+.bg-fx::before,.bg-fx::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;
+}
+.bg-fx::before{
+  width:60vw;height:60vw;max-width:820px;max-height:820px;
+  top:-22vw;left:-12vw;
+  background:radial-gradient(circle,rgba(100,210,255,.34),transparent 68%);
+  animation:drift 26s var(--ease) infinite alternate;
+}
+.bg-fx::after{
+  width:52vw;height:52vw;max-width:720px;max-height:720px;
+  top:34vh;right:-16vw;
+  background:radial-gradient(circle,rgba(167,139,250,.28),transparent 68%);
+  animation:drift 32s var(--ease) infinite alternate-reverse;
+}
+@keyframes drift{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(4vw,6vh,0) scale(1.14)}
+}
+.grid-fx{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:76px 76px;
+  mask-image:radial-gradient(ellipse 92% 58% at 50% 0%,#000 30%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 92% 58% at 50% 0%,#000 30%,transparent 78%);
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+.wrap{width:min(1160px,92vw);margin-inline:auto}
+
+/* ── Nav ──────────────────────────────────────────────────── */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  background:rgba(7,8,11,.62);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,background .3s;
+}
+header.nav.stuck{border-bottom-color:var(--stroke);background:rgba(7,8,11,.82)}
+.nav-in{display:flex;align-items:center;gap:22px;height:62px}
+.brand{font-family:var(--mono);font-size:.9rem;letter-spacing:-.01em;font-weight:600;margin-right:auto;display:flex;align-items:center;gap:9px}
+.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-3);box-shadow:0 0 12px var(--accent-3);flex:none}
+.nav a.link{font-size:.86rem;color:var(--text-dim);transition:color .2s}
+.nav a.link:hover{color:var(--text)}
+@media(max-width:680px){.nav a.link{display:none}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 15px;border-radius:11px;
+  font-size:.84rem;font-weight:500;
+  border:1px solid var(--stroke);background:var(--surface);
+  color:var(--text);
+  transition:border-color .2s,background .2s,transform .2s var(--ease);
+}
+.btn:hover{border-color:var(--stroke-2);background:var(--surface-2);transform:translateY(-1px)}
+.btn svg{width:16px;height:16px;flex:none}
+.btn.primary{
+  background:linear-gradient(135deg,rgba(100,210,255,.16),rgba(167,139,250,.16));
+  border-color:rgba(100,210,255,.34);
+}
+.btn.primary:hover{border-color:rgba(100,210,255,.6)}
+
+/* ── Avatar ─────────────────────────── */
+.avatar{background:var(--avatar) center/cover no-repeat;border-radius:50%;flex:none}
+.avatar-lg{width:84px;height:84px;margin-bottom:24px;border:2px solid var(--stroke-2);box-shadow:0 8px 30px rgba(0,0,0,.55),0 0 0 6px rgba(100,210,255,.06)}
+.avatar-sm{width:26px;height:26px;border:1px solid var(--stroke-2)}
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero{padding:clamp(72px,13vh,140px) 0 clamp(56px,8vh,90px)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--accent);
+  padding:6px 13px;border-radius:999px;
+  border:1px solid rgba(100,210,255,.24);background:rgba(100,210,255,.07);
+}
+h1{
+  font-size:clamp(2.5rem,7.2vw,5rem);
+  line-height:1.02;letter-spacing:-.035em;font-weight:700;
+  margin:26px 0 0;
+  background:linear-gradient(170deg,#fff 12%,#a9b6c9 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+h1 .accent{
+  background:linear-gradient(100deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.lede{
+  margin:24px 0 0;max-width:58ch;
+  font-size:clamp(1.02rem,1.7vw,1.2rem);color:var(--text-dim);
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+
+/* ── Stat strip ───────────────────────────────────────────── */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1px;margin-top:56px;
+  background:var(--stroke);border:1px solid var(--stroke);
+  border-radius:var(--radius);overflow:hidden;
+}
+.stat{background:var(--bg-soft);padding:20px 22px}
+.stat .n{font-family:var(--mono);font-size:1.85rem;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.stat .l{font-size:.76rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:.09em;margin-top:5px}
+
+/* ── Sections ─────────────────────────────────────────────── */
+section{padding:clamp(64px,9vh,104px) 0;scroll-margin-top:70px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:38px}
+h2{
+  font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.028em;font-weight:650;margin:0;line-height:1.15;
+}
+.sec-head p{margin:10px 0 0;color:var(--text-dim);max-width:56ch;font-size:.97rem}
+.sec-num{font-family:var(--mono);font-size:.76rem;color:var(--text-faint);letter-spacing:.1em}
+
+/* ── Filters ──────────────────────────────────────────────── */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{
+  font-family:var(--mono);font-size:.76rem;
+  padding:7px 13px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--stroke);background:transparent;color:var(--text-dim);
+  transition:all .2s var(--ease);
+}
+.chip:hover{border-color:var(--stroke-2);color:var(--text)}
+.chip[aria-pressed="true"]{
+  background:rgba(100,210,255,.13);border-color:rgba(100,210,255,.42);color:var(--accent);
+}
+
+/* ── Project cards ────────────────────────────────────────── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+.card{
+  position:relative;display:flex;flex-direction:column;
+  padding:26px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--stroke);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  overflow:hidden;isolation:isolate;
+  transition:transform .38s var(--ease),border-color .38s,background .38s;
+}
+.card::before{ /* cursor glow */
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;
+  transition:opacity .38s;
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(100,210,255,.13),transparent 62%);
+}
+.card:hover{transform:translateY(-4px);border-color:var(--stroke-2);background:var(--surface-2)}
+.card:hover::before{opacity:1}
+.card.featured{grid-column:span 2}
+@media(max-width:820px){.card.featured{grid-column:span 1}}
+
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.card h3{margin:0;font-size:1.16rem;letter-spacing:-.018em;font-weight:600;line-height:1.3}
+.card h3 a{transition:color .2s}
+.card:hover h3 a{color:var(--accent)}
+.card .repo{font-family:var(--mono);font-size:.72rem;color:var(--text-faint);margin-top:4px;word-break:break-all}
+.card p.desc{color:var(--text-dim);font-size:.92rem;margin:15px 0 0}
+
+.badge{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;
+  padding:4px 9px;border-radius:6px;flex:none;
+  border:1px solid rgba(74,222,128,.3);background:rgba(74,222,128,.1);color:var(--accent-3);
+}
+
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.tag{
+  font-family:var(--mono);font-size:.7rem;padding:4px 9px;border-radius:6px;
+  background:rgba(255,255,255,.05);border:1px solid var(--stroke);color:var(--text-faint);
+}
+
+.card-foot{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  margin-top:auto;padding-top:20px;
+  font-family:var(--mono);font-size:.74rem;color:var(--text-faint);
+}
+.card-foot .meta{display:inline-flex;align-items:center;gap:6px}
+.lang-dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--text-faint)}
+.card-foot .spacer{margin-left:auto}
+.card-foot a.src{color:var(--text-dim);transition:color .2s;display:inline-flex;align-items:center;gap:6px}
+.card-foot a.src:hover{color:var(--accent)}
+.card-foot svg{width:14px;height:14px}
+
+/* skeleton */
+.skel{pointer-events:none}
+.skel .bar{height:11px;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(255,255,255,.11),rgba(255,255,255,.05));background-size:200% 100%;animation:shimmer 1.5s infinite}
+@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+/* ── Approach ─────────────────────────────────────────────── */
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.principle{
+  padding:26px;border-radius:var(--radius);
+  border:1px solid var(--stroke);background:var(--surface);
+}
+.principle .ico{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(100,210,255,.16),rgba(167,139,250,.16));
+  border:1px solid rgba(100,210,255,.24);
+}
+.principle .ico svg{width:19px;height:19px;stroke:var(--accent)}
+.principle h4{margin:0 0 8px;font-size:1rem;font-weight:600;letter-spacing:-.012em}
+.principle p{margin:0;color:var(--text-dim);font-size:.9rem}
+
+/* ── Contact ──────────────────────────────────────────────── */
+.contact{
+  border-radius:24px;padding:clamp(36px,6vw,64px);text-align:center;
+  border:1px solid var(--stroke);
+  background:
+    radial-gradient(ellipse 70% 130% at 50% 0%,rgba(100,210,255,.1),transparent 70%),
+    var(--surface);
+}
+.contact h2{margin-bottom:12px}
+.contact p{color:var(--text-dim);max-width:48ch;margin:0 auto 28px}
+.contact .hero-actions{justify-content:center}
+
+footer{
+  border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.75rem;color:var(--text-faint);
+}
+
+/* ── Reveal ───────────────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="bg-fx"></div>
+<div class="grid-fx"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <span class="brand"><span class="avatar avatar-sm" role="img" aria-label="John Morrissey"></span>john&#8209;morrissey</span>
+    <a class="link" href="#work">Work</a>
+    <a class="link" href="#approach">Approach</a>
+    <a class="btn" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<main>
+  <!-- ── HERO ───────────────────────────────────────────── -->
+  <div class="wrap hero">
+    <div class="avatar avatar-lg" role="img" aria-label="John Morrissey"></div>
+    <span class="eyebrow">Learning technology &middot; University of Limerick</span>
+    <h1>Small tools that<br>make Brightspace<br><span class="accent">do more.</span></h1>
+    <p class="lede">
+      Self-contained widgets and utilities for Brightspace&nbsp;(D2L) — built on the platform's
+      own APIs, running entirely in the browser on your own session. No servers, no API keys,
+      no build step. Paste one file into a course and it works.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#work">Browse the work &rarr;</a>
+      <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID profile</a>
+    </div>
+
+    <div class="stats rv" id="stats">
+      <div class="stat"><div class="n" data-stat="repos">—</div><div class="l">Public repos</div></div>
+      <div class="stat"><div class="n" data-stat="stars">—</div><div class="l">Stars</div></div>
+      <div class="stat"><div class="n" data-stat="deps">0</div><div class="l">Runtime deps</div></div>
+      <div class="stat"><div class="n" data-stat="updated">—</div><div class="l">Last push</div></div>
+    </div>
+  </div>
+
+  <!-- ── WORK ───────────────────────────────────────────── -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="sec-num">01 / WORK</span>
+          <h2>Projects</h2>
+          <p>Pulled live from GitHub, so stars and dates are always current. Descriptions are written by hand.</p>
+        </div>
+      </div>
+
+      <div class="filters rv" id="filters" role="group" aria-label="Filter projects"></div>
+      <div class="grid" id="grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ── APPROACH ───────────────────────────────────────── -->
+  <section id="approach">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="sec-num">02 / APPROACH</span>
+          <h2>How these are built</h2>
+          <p>Every project follows the same constraints. They are what make the tools deployable by
+             someone who has a course, an HTML editor, and no IT ticket.</p>
+        </div>
+      </div>
+
+      <div class="principles rv">
+        <div class="principle">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/><path d="M9 9v11"/></svg></div>
+          <h4>One file, no build</h4>
+          <p>Markup, styles, scripts and icons live in a single HTML file. Copy, paste into a
+             Brightspace page or widget, save. Nothing to compile, nothing to host.</p>
+        </div>
+        <div class="principle">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h4>Your session, your permissions</h4>
+          <p>Calls ride on the viewer's own Brightspace login. Nobody sees anything the platform
+             wouldn't already show them, and no credentials are stored anywhere.</p>
+        </div>
+        <div class="principle">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h4>Portable across instances</h4>
+          <p>API versions are auto-detected and course context comes from Brightspace's own
+             replacement strings. Nothing is hard-coded to one institution.</p>
+        </div>
+        <div class="principle">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h4>Read-only unless asked</h4>
+          <p>Reporting tools only ever issue GETs. The ones that do write — grades, groups, course
+             status — say so plainly and preview the change first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact rv">
+        <span class="sec-num">03 / CONTACT</span>
+        <h2>Take one for a spin</h2>
+        <p>Everything here is open source under CC&nbsp;BY-NC-SA&nbsp;4.0. Fork it, adapt it to your
+           instance, or get in touch if something doesn't fit your setup.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">All repositories</a>
+          <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID</a>
+        </div>
+      </div>
+      <footer>
+        <span>&copy; <span id="yr"></span> John Morrissey</span>
+        <span>Built as a single static file &middot; hosted on GitHub Pages</span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  var USER = "John-Morrissey-UL";
+
+  /* ── Hand-written descriptions & tags, keyed by repo name (lowercased).
+        Anything not listed here still renders, using GitHub's own description. ── */
+  var CURATED = {
+    "admin-accelerator-suite": {
+      title: "Admin Accelerator Suite",
+      featured: true,
+      badge: "Flagship",
+      desc: "Four admin tools behind one launcher, in a single HTML file: a bulk group creator that "+
+            "generates dynamic group descriptions from an Excel sheet, a bulk grades &amp; feedback "+
+            "uploader (including private instructor comments), and full reporting and Excel export "+
+            "for discussions and checklists. Each tool builds inside its own isolated in-page frame "+
+            "so they never conflict.",
+      tags:["Valence API","Excel I/O","Isolated frames","XSRF-aware","Single file"]
+    },
+    "brightspace_deadline_radar": {
+      title: "Deadline Radar",
+      featured: true,
+      badge: "Read-only",
+      desc: "Answers a question no single-course view in Brightspace can: is my programme piling heavy "+
+            "assessment into the same few weeks? Plots assignment and quiz windows across every module "+
+            "you pick onto one timeline, weighted by each item's share of the module grade rather than "+
+            "a raw count. A month → week → day pressure grid flags collisions, and special-access "+
+            "extensions surface as a second, hidden deadline.",
+      tags:["Data viz","Grade weighting","Special access","localStorage","Light + dark"]
+    },
+    "brightspace_class_faces": {
+      title: "Class Faces",
+      desc: "Turns a classlist into a grid of faces so you can learn who's who, take a visual roll call, "+
+            "or print a face sheet for week one. Search as you type, sort by first or last name, filter "+
+            "by group category or role, and hover any photo for a card linking straight to that student's "+
+            "Class Progress.",
+      tags:["Classlist API","Print layout","Group filters","Pronouns"]
+    },
+    "brightspace_course_status_widget": {
+      title: "Course Status Widget",
+      desc: "Shows whether a course is active or inactive right on the homepage, with an inline toggle — "+
+            "no navigating to Course Admin. Reads status via the LP REST API where permitted and falls "+
+            "back to driving Brightspace's own edit form in a hidden iframe, so it needs no extra "+
+            "permissions at all.",
+      tags:["LP REST API","Graceful fallback","Zero extra perms","D2L theming"]
+    },
+    "brightspace-assignment-grouper": {
+      title: "Assignment Grouper",
+      desc: "A Python utility for the mess that is a bulk D2L submission download. Unzips the exports and "+
+            "reorganises them into one folder per student with a subfolder per assignment. Because "+
+            "institutions customise submission folder naming, it splits a real folder name into parts and "+
+            "asks which ones identify the student — then remembers your answer, and previews every folder "+
+            "it would create before touching anything.",
+      tags:["Python 3","Stdlib only","Interactive CLI","Long-path aware"]
+    }
+  };
+
+  /* ── Fallback snapshot: used only if the GitHub API is unreachable
+        (offline, or the 60 req/hr unauthenticated rate limit is hit). ── */
+  var FALLBACK = [
+    {name:"Brightspace_Deadline_Radar",language:"HTML",stargazers_count:0,pushed_at:"2026-07-21T13:56:57Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Deadline_Radar",description:""},
+    {name:"Brightspace_Class_Faces",language:"HTML",stargazers_count:0,pushed_at:"2026-07-21T11:59:56Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Class_Faces",description:""},
+    {name:"Brightspace-Assignment-Grouper",language:"Python",stargazers_count:0,pushed_at:"2026-07-08T11:16:34Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace-Assignment-Grouper",description:""},
+    {name:"Brightspace_Course_Status_Widget",language:"HTML",stargazers_count:0,pushed_at:"2026-07-01T08:28:48Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Course_Status_Widget",description:"A lightweight Brightspace widget to display and toggle course active/inactive status from the course homepage"},
+    {name:"admin-accelerator-suite",language:"HTML",stargazers_count:0,pushed_at:"2026-06-23T11:29:35Z",html_url:"https://github.com/John-Morrissey-UL/admin-accelerator-suite",description:"One-file Brightspace toolkit for bulk groups, grades/feedback upload, and discussion & checklist reporting."}
+  ];
+
+  var LANG_COLOR = {HTML:"#e34c26",Python:"#3572A5",JavaScript:"#f1e05a",CSS:"#563d7c",TypeScript:"#3178c6"};
+
+  var $  = function(s,r){return (r||document).querySelector(s)};
+  var esc = function(s){var d=document.createElement("div");d.textContent=s==null?"":s;return d.innerHTML};
+
+  function prettyName(n){
+    return n.replace(/[-_]+/g," ").replace(/\bBrightspace\b\s*/i,"").trim()
+            .replace(/\b\w/g,function(c){return c.toUpperCase()}) || n;
+  }
+  function ago(iso){
+    if(!iso) return "—";
+    var d=new Date(iso), days=Math.floor((Date.now()-d)/864e5);
+    if(days<1) return "today";
+    if(days<30) return days+"d ago";
+    if(days<365) return Math.floor(days/30)+"mo ago";
+    return Math.floor(days/365)+"y ago";
+  }
+
+  var ICON_GH = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>';
+  var ICON_STAR = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25l2.29 4.64 5.12.75-3.7 3.61.87 5.1L8 11.94l-4.58 2.41.87-5.1L.59 5.64l5.12-.75L8 .25z"/></svg>';
+
+  /* ── Render ─────────────────────────────────────────── */
+  var grid = $("#grid"), filtersEl = $("#filters"), all = [];
+
+  function skeletons(n){
+    var h="";
+    for(var i=0;i<n;i++){
+      h+='<div class="card skel"><div class="bar" style="width:55%;height:16px"></div>'+
+         '<div class="bar" style="width:35%;margin-top:10px"></div>'+
+         '<div class="bar" style="width:100%;margin-top:20px"></div>'+
+         '<div class="bar" style="width:92%;margin-top:9px"></div>'+
+         '<div class="bar" style="width:70%;margin-top:9px"></div>'+
+         '<div class="bar" style="width:45%;margin-top:26px"></div></div>';
+    }
+    grid.innerHTML=h;
+  }
+
+  function cardHTML(r){
+    var c = CURATED[r.name.toLowerCase()] || {};
+    var title = c.title || prettyName(r.name);
+    var desc  = c.desc || esc(r.description || "No description yet — open the repository for details.");
+    var tags  = c.tags || [];
+    var lang  = r.language || "—";
+    var color = LANG_COLOR[lang] || "#6b7484";
+
+    return '<article class="card'+(c.featured?" featured":"")+'" data-lang="'+esc(lang)+'" tabindex="0">'+
+      '<div class="card-top">'+
+        '<div>'+
+          '<h3><a href="'+esc(r.html_url)+'" target="_blank" rel="noopener">'+esc(title)+'</a></h3>'+
+          '<div class="repo">'+esc(r.name)+'</div>'+
+        '</div>'+
+        (c.badge?'<span class="badge">'+esc(c.badge)+'</span>':'')+
+      '</div>'+
+      '<p class="desc">'+desc+'</p>'+
+      (tags.length?'<div class="tags">'+tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join("")+'</div>':'')+
+      '<div class="card-foot">'+
+        '<span class="meta"><span class="lang-dot" style="background:'+color+'"></span>'+esc(lang)+'</span>'+
+        '<span class="meta">'+ICON_STAR+' '+(r.stargazers_count||0)+'</span>'+
+        '<span class="meta">'+ago(r.pushed_at)+'</span>'+
+        '<a class="src spacer" href="'+esc(r.html_url)+'" target="_blank" rel="noopener">'+ICON_GH+' Source</a>'+
+      '</div>'+
+    '</article>';
+  }
+
+  function render(list){
+    grid.innerHTML = list.map(cardHTML).join("");
+    // cursor-tracking glow
+    Array.prototype.forEach.call(grid.children,function(el){
+      el.addEventListener("mousemove",function(e){
+        var b=el.getBoundingClientRect();
+        el.style.setProperty("--mx",(e.clientX-b.left)+"px");
+        el.style.setProperty("--my",(e.clientY-b.top)+"px");
+      });
+    });
+  }
+
+  function buildFilters(list){
+    var langs = [];
+    list.forEach(function(r){
+      var l = r.language || "Other";
+      if(langs.indexOf(l)<0) langs.push(l);
+    });
+    var opts = ["All"].concat(langs.sort());
+    filtersEl.innerHTML = opts.map(function(l,i){
+      return '<button class="chip" type="button" aria-pressed="'+(i===0)+'" data-f="'+esc(l)+'">'+esc(l)+'</button>';
+    }).join("");
+    filtersEl.addEventListener("click",function(e){
+      var b = e.target.closest(".chip"); if(!b) return;
+      Array.prototype.forEach.call(filtersEl.children,function(c){c.setAttribute("aria-pressed", c===b)});
+      var f = b.dataset.f;
+      render(f==="All" ? all : all.filter(function(r){return (r.language||"Other")===f}));
+    });
+  }
+
+  function setStats(list){
+    var stars = list.reduce(function(a,r){return a+(r.stargazers_count||0)},0);
+    var newest = list.reduce(function(a,r){
+      return (!a || new Date(r.pushed_at)>new Date(a)) ? r.pushed_at : a;
+    },null);
+    $('[data-stat="repos"]').textContent   = list.length;
+    $('[data-stat="stars"]').textContent   = stars;
+    $('[data-stat="updated"]').textContent = ago(newest);
+  }
+
+  function boot(list){
+    // curated projects first (featured first), then everything else by recency
+    var order = Object.keys(CURATED);
+    list.sort(function(a,b){
+      var ia = order.indexOf(a.name.toLowerCase()), ib = order.indexOf(b.name.toLowerCase());
+      if(ia<0) ia = 99; if(ib<0) ib = 99;
+      if(ia!==ib) return ia-ib;
+      return new Date(b.pushed_at) - new Date(a.pushed_at);
+    });
+    all = list;
+    setStats(list);
+    buildFilters(list);
+    render(list);
+    observeReveal();
+  }
+
+  skeletons(4);
+
+  fetch("https://api.github.com/users/"+USER+"/repos?per_page=100&sort=pushed")
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(d){ boot(d.filter(function(r){return !r.fork && !r.archived})); })
+    .catch(function(){ boot(FALLBACK.slice()); });
+
+  /* ── Reveal on scroll ───────────────────────────────── */
+  function observeReveal(){
+    var els = document.querySelectorAll(".rv:not(.in)");
+    if(!("IntersectionObserver" in window)){
+      Array.prototype.forEach.call(els,function(e){e.classList.add("in")});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    },{rootMargin:"0px 0px -8% 0px",threshold:.08});
+    Array.prototype.forEach.call(els,function(e){io.observe(e)});
+  }
+  observeReveal();
+
+  /* ── Sticky nav border ──────────────────────────────── */
+  var nav = $("header.nav");
+  addEventListener("scroll",function(){ nav.classList.toggle("stuck", scrollY > 8) },{passive:true});
+
+  $("#yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
