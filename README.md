@@ -13,12 +13,13 @@ zero-dependency, single-file widgets that run on the viewer's own session.
 
 ## How it works
 
-- **Live project list.** Repositories, stars, language and "last push" are
-  fetched from the GitHub REST API on each load, so new repos appear
-  automatically and stats stay current.
-- **Curated copy.** Hand-written descriptions and tags live in a `CURATED`
-  object near the top of the `<script>`, keyed by repo name. A repo not listed
-  there still renders, falling back to its own GitHub description.
+- **Live project list.** Repositories, descriptions, stars, language and
+  "last push" are fetched from the GitHub REST API on each load, so new repos
+  appear automatically and everything stays current.
+- **Curated extras.** Display titles, tags, badges and the "featured" flag live
+  in a `CURATED` object near the top of the `<script>`, keyed by repo name.
+  Descriptions come from GitHub; the curated blurb is only a fallback if a repo
+  has no GitHub description. A repo not listed still renders automatically.
 - **Offline fallback.** If the API is unreachable (or the 60 req/hr
   unauthenticated limit is hit), the page renders from a hardcoded snapshot
   instead of an empty grid.

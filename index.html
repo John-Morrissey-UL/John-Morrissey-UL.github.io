@@ -330,7 +330,7 @@ footer{
         <div>
           <span class="sec-num">01 / WORK</span>
           <h2>Projects</h2>
-          <p>Pulled live from GitHub, so stars and dates are always current. Descriptions are written by hand.</p>
+          <p>Pulled live from GitHub, so descriptions, stars and dates are always current.</p>
         </div>
       </div>
 
@@ -509,7 +509,7 @@ footer{
   function cardHTML(r){
     var c = CURATED[r.name.toLowerCase()] || {};
     var title = c.title || prettyName(r.name);
-    var desc  = c.desc || esc(r.description || "No description yet — open the repository for details.");
+    var desc  = esc(r.description) || c.desc || "No description yet — open the repository for details.";
     var tags  = c.tags || [];
     var lang  = r.language || "—";
     var color = LANG_COLOR[lang] || "#6b7484";
