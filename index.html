@@ -88,6 +88,27 @@ header.nav.stuck{border-bottom-color:var(--stroke);background:rgba(255,255,255,.
 .btn.primary:hover{box-shadow:0 10px 26px rgba(37,99,235,.36)}
 
 .hero{padding:clamp(40px,6vh,72px) 0 clamp(48px,7vh,80px)}
+/* copy left, the series video right; stacks under 900px */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(28px,5vw,64px);align-items:center}
+.hero-video{position:relative;display:block;padding:0;border:1px solid var(--stroke);background:#0e1c3d;
+  border-radius:var(--radius);overflow:hidden;cursor:pointer;box-shadow:var(--shadow-lg);
+  width:clamp(216px,23vw,296px);aspect-ratio:1080/1920;
+  transition:transform .38s var(--ease),box-shadow .38s,border-color .38s}
+.hero-video:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.35)}
+.hero-video img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.hero-video:hover img{transform:scale(1.035)}
+.hv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;
+  display:grid;place-items:center;font-size:1.25rem;color:#fff;padding-left:4px;
+  background:rgba(14,28,61,.62);border:1px solid rgba(255,255,255,.42);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);transition:background .25s,transform .25s var(--ease)}
+.hero-video:hover .hv-play{background:var(--accent);transform:translate(-50%,-50%) scale(1.06)}
+.hv-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.04em;color:#fff;text-align:center;
+  background:linear-gradient(to top,rgba(8,14,30,.82),transparent)}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-video{justify-self:start;width:min(232px,58vw)}
+}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;
   color:var(--accent);padding:6px 13px;border-radius:999px;border:1px solid rgba(37,99,235,.28);background:rgba(37,99,235,.08)}
 h1{font-size:clamp(2.5rem,7.2vw,5rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:24px 0 0;
@@ -241,17 +262,28 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   <div class="banner-wrap"><img class="banner" src="banner.jpg" alt="Advancing Learning Through Technology"></div>
   <!-- ── HERO ───────────────────────────────────────────── -->
   <div class="wrap hero">
-    <div class="avatar avatar-lg" role="img" aria-label="John Morrissey"></div>
-    <span class="eyebrow">Learning technology &middot; University of Limerick</span>
-    <h1>Small tools that<br>make Brightspace<br><span class="accent">do more.</span></h1>
-    <p class="lede">
-      Self-contained widgets and utilities for Brightspace&nbsp;(D2L) — built on the platform's
-      own APIs, running entirely in the browser on your own session. No servers, no API keys,
-      no build step. Paste one file into a course and it works.
-    </p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#work">Browse the work &rarr;</a>
-      <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID profile</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="avatar avatar-lg" role="img" aria-label="John Morrissey"></div>
+        <span class="eyebrow">Learning technology &middot; University of Limerick</span>
+        <h1>Small tools that<br>make Brightspace<br><span class="accent">do more.</span></h1>
+        <p class="lede">
+          Self-contained widgets and utilities for Brightspace&nbsp;(D2L) — built on the platform's
+          own APIs, running entirely in the browser on your own session. No servers, no API keys,
+          no build step. Paste one file into a course and it works.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#work">Browse the work &rarr;</a>
+          <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID profile</a>
+        </div>
+      </div>
+
+      <button type="button" class="hero-video" id="seriesVideo"
+              aria-label="Play the Summer Series video: six free Brightspace tools">
+        <img src="media/summer-series-cover.jpg" alt="" loading="eager">
+        <span class="hv-play" aria-hidden="true">&#9654;</span>
+        <span class="hv-cap">Six free tools &middot; 34 sec</span>
+      </button>
     </div>
 
     <div class="stats rv" id="stats">
@@ -372,6 +404,17 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
             "so they never conflict.",
       tags:["Valence API","Excel I/O","Isolated frames","XSRF-aware","Single file"]
     },
+    "brightspace_discussion_network": {
+      title: "Discussion Network",
+      shot: "discussion-network.jpg",
+      badge: "New",
+      desc: "Draws a discussion board as the reply structure it actually is: every person a dot, every "+
+            "reply an arrow, sized by how much they post and coloured by who wrote the reply — so a board "+
+            "where staff are doing all the answering turns orange in front of you. The headline number is "+
+            "the share of students who got a reply from another student. It also names the students nobody "+
+            "replied to, and a week slider replays the term. Large cohorts switch to a sortable reply matrix.",
+      tags:["Data viz","Force layout","Reply matrix","CSV export","Light + dark"]
+    },
     "brightspace_deadline_radar": {
       title: "Deadline Radar",
       shot: "deadline-radar.jpg",
@@ -417,6 +460,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   /* ── Fallback snapshot: used only if the GitHub API is unreachable
         (offline, or the 60 req/hr unauthenticated rate limit is hit). ── */
   var FALLBACK = [
+    {name:"Brightspace_Discussion_Network",language:"HTML",stargazers_count:0,pushed_at:"2026-07-29T10:47:00Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Discussion_Network",description:""},
     {name:"Brightspace_Deadline_Radar",language:"HTML",stargazers_count:0,pushed_at:"2026-07-21T13:56:57Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Deadline_Radar",description:""},
     {name:"Brightspace_Class_Faces",language:"HTML",stargazers_count:0,pushed_at:"2026-07-21T11:59:56Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Class_Faces",description:""},
     {name:"Brightspace-Assignment-Grouper",language:"Python",stargazers_count:0,pushed_at:"2026-07-08T11:16:34Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace-Assignment-Grouper",description:""},
@@ -426,6 +470,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
 
   /* Per-tool media for the lightbox (raw screenshots + optional demo video). */
   var MEDIA = {
+    "brightspace_discussion_network":{imgs:["media/discussion-network/1.jpg","media/discussion-network/2.jpg","media/discussion-network/3.jpg"]},
     "brightspace_deadline_radar":{video:"media/deadline-radar.mp4",imgs:["media/deadline-radar/1.jpg","media/deadline-radar/2.jpg","media/deadline-radar/3.jpg","media/deadline-radar/4.jpg"]},
     "brightspace_class_faces":{imgs:["media/class-faces/1.jpg"]},
     "brightspace_course_status_widget":{imgs:["media/course-status/1.jpg","media/course-status/2.jpg"]},
@@ -644,19 +689,29 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
       else if(e.key==="ArrowRight") lbShow(lbIdx+1);
     });
   }
-  function openLightbox(repo){
-    var m=MEDIA[repo]; if(!m) return;
-    lbItems=[]; if(m.video) lbItems.push({t:"video",s:m.video});
-    (m.imgs||[]).forEach(function(s){lbItems.push({t:"img",s:s})});
-    if(!lbItems.length) return;
+  function openItems(items){
+    if(!items || !items.length) return;
+    lbItems=items;
     lbShow(0); lbEl.hidden=false; document.body.style.overflow="hidden";
     lbEl.querySelector(".lb-close").focus();
+  }
+  function openLightbox(repo){
+    var m=MEDIA[repo]; if(!m) return;
+    var items=[]; if(m.video) items.push({t:"video",s:m.video});
+    (m.imgs||[]).forEach(function(s){items.push({t:"img",s:s})});
+    openItems(items);
   }
   function closeLightbox(){ lbEl.hidden=true; lbStage.innerHTML=""; document.body.style.overflow=""; }
   function lbShow(i){
     lbIdx=(i+lbItems.length)%lbItems.length; var it=lbItems[lbIdx];
+    /* Tool demos are silent screen recordings, so they loop muted. The series
+       video has a voiceover: play it once, with sound. The click that opened
+       the lightbox counts as the gesture browsers require for unmuted autoplay,
+       and the controls are there if a browser blocks it anyway. */
     lbStage.innerHTML = it.t==="video"
-      ? '<video src="'+it.s+'" controls autoplay loop muted playsinline></video>'
+      ? (it.sound
+          ? '<video src="'+it.s+'" poster="'+(it.poster||'')+'" controls autoplay playsinline></video>'
+          : '<video src="'+it.s+'" controls autoplay loop muted playsinline></video>')
       : '<img src="'+it.s+'" alt="">';
     var multi=lbItems.length>1;
     lbPrev.style.display=lbNext.style.display=multi?"":"none";
@@ -664,6 +719,11 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
     lbCount.textContent=(lbIdx+1)+" / "+lbItems.length;
   }
   buildLightbox();
+
+  var sv = $("#seriesVideo");
+  if(sv) sv.addEventListener("click",function(){
+    openItems([{t:"video",s:"media/summer-series.mp4",poster:"media/summer-series-cover.jpg",sound:true}]);
+  });
 
   $("#yr").textContent = new Date().getFullYear();
 })();
