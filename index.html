@@ -4,806 +4,440 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>John Morrissey · Educational Technology | Project Manager | VLE Innovation</title>
-<meta name="description" content="John Morrissey: Educational Technology, Project Manager and VLE Innovation in Higher Education at the University of Limerick. Free, open-source tools for Brightspace (D2L): one HTML file each, no servers or API keys.">
+<meta name="description" content="John Morrissey: Educational Technology, Project Manager and VLE Innovation in Higher Education at the University of Limerick. Free, open-source tools for Brightspace (D2L).">
 <meta name="author" content="John Morrissey">
 <link rel="canonical" href="https://john-morrissey-ul.github.io/">
 <meta property="og:title" content="John Morrissey · Educational Technology | Project Manager | VLE Innovation">
-<meta property="og:description" content="Free, open-source tools that make Brightspace (D2L) do more. One HTML file each, no servers, no API keys, no IT ticket.">
+<meta property="og:description" content="I build free tools that make Brightspace (D2L) easier for the people who teach on it. One HTML file each, no servers, no API keys, no IT ticket.">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="John Morrissey">
 <meta property="og:url" content="https://john-morrissey-ul.github.io/">
+<meta property="og:image" content="https://john-morrissey-ul.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#f7f5f0">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"John Morrissey","jobTitle":"Educational Technology | Project Manager | VLE Innovation",
+ "image":"https://john-morrissey-ul.github.io/media/john-morrissey.jpg",
  "worksFor":{"@type":"CollegeOrUniversity","name":"University of Limerick","url":"https://www.ul.ie/"},
  "url":"https://john-morrissey-ul.github.io/",
  "sameAs":["https://www.linkedin.com/in/johnwmorrissey/","https://github.com/John-Morrissey-UL","https://orcid.org/0009-0005-4153-3908"],
  "knowsAbout":["Brightspace (D2L)","Educational technology","Project management","VLE innovation","Learning analytics","Data visualisation"]}
 </script>
-<meta property="og:image" content="https://john-morrissey-ul.github.io/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="theme-color" content="#eef4f1">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232563eb'/><text y='68' x='50' text-anchor='middle' font-size='54' font-family='monospace' fill='%23ffffff'>J</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2316241f'/><text x='50' y='69' text-anchor='middle' font-size='56' font-family='Georgia,serif' fill='%23f7f5f0'>J</text></svg>">
 
 <style>
-
+/* An editorial page: one serif for headlines, the system sans for reading, one accent colour,
+   and the work itself as the decoration. No external fonts or scripts. */
 :root{
-  --bg:#eef4f1;
-  --bg-soft:#ffffff;
-  --surface:#ffffff;
-  --surface-2:#ffffff;
-  --stroke:rgba(15,27,54,.10);
-  --stroke-2:rgba(15,27,54,.20);
-  --text:#0e1c3d;
-  --text-dim:#4a5670;
-  --text-faint:#7c8698;
-  --accent:#2563eb;
-  --accent-2:#0891b2;
-  --accent-3:#0f9d6b;
-  --shadow:0 10px 30px rgba(15,27,54,.08);
-  --shadow-lg:0 18px 46px rgba(15,27,54,.14);
-  --radius:18px;
-  --mono:ui-monospace,"SF Mono",SFMono-Regular,"JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
-  --sans:"Inter var",Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
-  --avatar:url("data:image/jpeg;base64,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");
+  --paper:#f7f5f0;
+  --paper-2:#efece4;
+  --card:#ffffff;
+  --ink:#16241f;
+  --ink-2:#4a554f;
+  --ink-3:#7a837d;
+  --rule:#ddd8cc;
+  --accent:#0b6b4f;
+  --accent-ink:#ffffff;
+  --shade:0 1px 2px rgba(22,36,31,.06),0 12px 32px rgba(22,36,31,.10);
+  --serif:Charter,"Bitstream Charter","Sitka Text",Cambria,"Iowan Old Style",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --wrap:min(1120px,calc(100vw - 40px));
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#121614;
+    --paper-2:#1a1f1c;
+    --card:#1c221f;
+    --ink:#ecebe6;
+    --ink-2:#b4b9b3;
+    --ink-3:#848b86;
+    --rule:#2c332f;
+    --accent:#5cc79f;
+    --accent-ink:#0d1a15;
+    --shade:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);
+  }
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:
-    radial-gradient(ellipse 90% 60% at 12% -8%,rgba(37,99,235,.10),transparent 60%),
-    radial-gradient(ellipse 80% 60% at 100% 0%,rgba(16,185,129,.13),transparent 55%),
-    var(--bg);
-  color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-::selection{background:rgba(37,99,235,.18)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:var(--wrap);margin-inline:auto}
+::selection{background:color-mix(in srgb,var(--accent) 22%,transparent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-.bg-fx{position:fixed;inset:0;z-index:-2;pointer-events:none}
-.bg-fx::before,.bg-fx::after{content:"";position:absolute;border-radius:50%;filter:blur(120px);opacity:.5}
-.bg-fx::before{width:60vw;height:60vw;max-width:820px;max-height:820px;top:-24vw;left:-14vw;
-  background:radial-gradient(circle,rgba(37,99,235,.22),transparent 68%);animation:drift 26s var(--ease) infinite alternate}
-.bg-fx::after{width:52vw;height:52vw;max-width:720px;max-height:720px;top:22vh;right:-18vw;
-  background:radial-gradient(circle,rgba(16,185,129,.22),transparent 68%);animation:drift 32s var(--ease) infinite alternate-reverse}
-@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(4vw,6vh,0) scale(1.14)}}
-.grid-fx{position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(rgba(15,27,54,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(15,27,54,.045) 1px,transparent 1px);
-  background-size:76px 76px;
-  -webkit-mask-image:radial-gradient(ellipse 92% 58% at 50% 0%,#000 30%,transparent 78%);
-  mask-image:radial-gradient(ellipse 92% 58% at 50% 0%,#000 30%,transparent 78%)}
+/* Top bar */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.stuck{border-bottom-color:var(--rule)}
+.top-in{display:flex;align-items:center;gap:28px;height:60px}
+.mark{font-family:var(--serif);font-size:1.15rem;font-weight:700;text-decoration:none;margin-right:auto;letter-spacing:-.005em}
+.top nav{display:flex;gap:24px}
+.top nav a{font-size:.92rem;color:var(--ink-2);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+@media(max-width:640px){.top nav{display:none}}
 
-.wrap{width:min(1160px,92vw);margin-inline:auto}
-
-.banner-wrap{width:100%;line-height:0;border-bottom:1px solid var(--stroke)}
-/* slim, so the name and role sit near the top of the first screen */
-.banner{width:100%;height:auto;display:block;max-height:200px;object-fit:cover;object-position:center}
-
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
-  background:rgba(255,255,255,.72);border-bottom:1px solid transparent;transition:border-color .3s,background .3s,box-shadow .3s}
-header.nav.stuck{border-bottom-color:var(--stroke);background:rgba(255,255,255,.9);box-shadow:0 6px 20px rgba(15,27,54,.06)}
-.nav-in{display:flex;align-items:center;gap:22px;height:62px}
-.brand{font-size:.98rem;letter-spacing:-.01em;font-weight:700;margin-right:auto;display:flex;align-items:center;gap:9px;color:var(--text)}
-.nav a.link{font-size:.86rem;color:var(--text-dim);transition:color .2s}
-.nav a.link:hover{color:var(--accent)}
-@media(max-width:680px){.nav a.link{display:none}}
-@media(max-width:440px){.nav-in{gap:10px}.nav-in .btn + .btn{display:none}}  /* phones: LinkedIn only; GitHub is in Contact */
-
-.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:11px;font-size:.84rem;font-weight:600;
-  border:1px solid var(--stroke);background:#fff;color:var(--text);box-shadow:0 1px 2px rgba(15,27,54,.04);
-  transition:border-color .2s,background .2s,transform .2s var(--ease),box-shadow .2s}
-.btn:hover{border-color:var(--stroke-2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(15,27,54,.10)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font:600 .92rem/1 var(--sans);
+  text-decoration:none;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
+.btn:hover{border-color:var(--ink-3)}
+.btn.solid{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn svg{width:16px;height:16px;flex:none}
-.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.28)}
-.btn.primary:hover{box-shadow:0 10px 26px rgba(37,99,235,.36)}
+.btn.sm{padding:8px 14px;font-size:.86rem}
+.link{color:var(--accent);font-weight:600;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.link:hover{border-bottom-color:var(--accent)}
 
-.hero{padding:clamp(40px,6vh,72px) 0 clamp(48px,7vh,80px)}
-/* copy left, the series video right; stacks under 900px */
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(28px,5vw,64px);align-items:center}
-.hero-video{position:relative;display:block;padding:0;border:1px solid var(--stroke);background:#0e1c3d;
-  border-radius:var(--radius);overflow:hidden;cursor:pointer;box-shadow:var(--shadow-lg);
-  width:clamp(216px,23vw,296px);aspect-ratio:1080/1920;
-  transition:transform .38s var(--ease),box-shadow .38s,border-color .38s}
-.hero-video:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.35)}
-.hero-video img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
-.hero-video:hover img{transform:scale(1.035)}
-.hv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;
-  display:grid;place-items:center;font-size:1.25rem;color:#fff;padding-left:4px;
-  background:rgba(14,28,61,.62);border:1px solid rgba(255,255,255,.42);
-  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);transition:background .25s,transform .25s var(--ease)}
-.hero-video:hover .hv-play{background:var(--accent);transform:translate(-50%,-50%) scale(1.06)}
-.hv-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;font-family:var(--mono);font-size:.7rem;
-  letter-spacing:.04em;color:#fff;text-align:center;
-  background:linear-gradient(to top,rgba(8,14,30,.82),transparent)}
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:34px}
-  .hero-video{justify-self:start;width:min(232px,58vw)}
-}
-/* who: photo, name and role, ahead of the tagline */
-.who{display:flex;align-items:center;gap:18px}
-.who .avatar-lg{margin-bottom:0}
-.who-name{margin:0;font-size:clamp(1.35rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
-.who-role{margin:3px 0 0;font-size:.98rem;color:var(--text-dim)}
-.who + h1{margin-top:28px}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--accent);padding:6px 13px;border-radius:999px;border:1px solid rgba(37,99,235,.28);background:rgba(37,99,235,.08)}
-h1{font-size:clamp(2.5rem,7.2vw,5rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:24px 0 0;
-  background:linear-gradient(160deg,#0e1c3d 20%,#2563eb 96%);-webkit-background-clip:text;background-clip:text;color:transparent}
-h1 .accent{background:linear-gradient(100deg,var(--accent),var(--accent-2) 55%,var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lede{margin:22px 0 0;max-width:58ch;font-size:clamp(1.02rem,1.7vw,1.2rem);color:var(--text-dim)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+/* Opening */
+.intro{padding:clamp(56px,10vh,112px) 0 clamp(56px,9vh,96px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(32px,6vw,80px);align-items:start}
+.kicker{margin:0 0 22px;font-size:.88rem;color:var(--ink-3);letter-spacing:.01em}
+.kicker b{color:var(--ink);font-weight:600}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.3rem,5.4vw,4.1rem);line-height:1.08;letter-spacing:-.02em;margin:0;max-width:17ch}
+h1 em{font-style:italic;color:var(--accent)}
+.intro p.lead{margin:28px 0 0;max-width:56ch;font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--ink-2)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:34px}
+.portrait{width:clamp(132px,15vw,176px);height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:var(--shade);margin-top:8px}
+@media(max-width:760px){.intro{grid-template-columns:1fr}.portrait{order:-1;width:104px;margin:0}}
 
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;margin-top:52px;
-  background:var(--stroke);border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.stat{background:#fff;padding:20px 22px}
-.stat .n{font-family:var(--mono);font-size:1.85rem;font-weight:700;letter-spacing:-.03em;line-height:1.1;
-  background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat .l{font-size:.76rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:.09em;margin-top:5px}
+/* Section headings */
+.sec{padding:clamp(56px,9vh,104px) 0;border-top:1px solid var(--rule)}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(36px,6vh,64px)}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.15;letter-spacing:-.015em;margin:0}
+.sec-h p{margin:0;color:var(--ink-3);font-size:.95rem;max-width:44ch}
 
-section{padding:clamp(56px,8vh,96px) 0;scroll-margin-top:70px}
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:38px}
-h2{font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.028em;font-weight:750;margin:0;line-height:1.15;color:var(--text)}
-.sec-head p{margin:10px 0 0;color:var(--text-dim);max-width:56ch;font-size:.97rem}
-.sec-num{font-family:var(--mono);font-size:.76rem;color:var(--accent);letter-spacing:.1em;font-weight:600}
+/* Case studies: text on one side, the tool on the other, swapping sides as you go down */
+.case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:center}
+.case + .case{margin-top:clamp(64px,11vh,120px)}
+.case:nth-of-type(even){grid-template-columns:minmax(0,7fr) minmax(0,5fr)}  /* the picture keeps the wide column */
+.case:nth-of-type(even) .case-text{order:2}
+.case-num{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:1.05rem}
+.case h3{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.05rem);line-height:1.15;letter-spacing:-.01em;margin:6px 0 18px}
+.case dl{margin:0}
+.case dt{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-top:18px}
+.case dt:first-child{margin-top:0}
+.case dd{margin:6px 0 0;color:var(--ink-2)}
+.case dd.problem{font-family:var(--serif);font-size:1.12rem;line-height:1.5;color:var(--ink)}
+.case-links{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-size:.95rem}
+.case-links button{background:none;border:0;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);padding:0;font:inherit;cursor:pointer}
+.built{margin-top:16px;font-size:.84rem;color:var(--ink-3)}
+@media(max-width:880px){.case,.case:nth-of-type(even){grid-template-columns:1fr}.case:nth-of-type(even) .case-text{order:0}.case-pic{order:-1}}
 
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.chip{font-family:var(--mono);font-size:.76rem;padding:7px 13px;border-radius:999px;cursor:pointer;
-  border:1px solid var(--stroke);background:#fff;color:var(--text-dim);transition:all .2s var(--ease)}
-.chip:hover{border-color:var(--stroke-2);color:var(--text)}
-.chip[aria-pressed="true"]{background:rgba(37,99,235,.1);border-color:rgba(37,99,235,.45);color:var(--accent)}
+.shot{display:block;width:100%;padding:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--card);
+  box-shadow:var(--shade);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+.shot:hover{transform:translateY(-3px)}
+.shot img{width:100%;height:auto}
+/* Deadline Radar's picture has wide empty margins: show just the timeline (x 100-1300, y 22-592 of 1400x700) */
+.shot.trim img{width:116.667%;max-width:none;margin:-1.833% 0 -9% -8.333%}
+.shot-cap{display:block;margin-top:10px;font-size:.82rem;color:var(--ink-3);text-align:right}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
-@media(max-width:520px){.grid{grid-template-columns:1fr}}
-.card{position:relative;display:flex;flex-direction:column;padding:26px;border-radius:var(--radius);
-  background:var(--surface);border:1px solid var(--stroke);overflow:hidden;isolation:isolate;box-shadow:var(--shadow);
-  transition:transform .38s var(--ease),border-color .38s,box-shadow .38s}
-.card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .38s;
-  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(37,99,235,.08),transparent 62%)}
-.card:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.35);box-shadow:var(--shadow-lg)}
-.card:hover::before{opacity:1}
-.card.featured{grid-column:span 1}
+/* Also built: three smaller tools */
+.also{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(72px,12vh,128px)}
+.also-h{grid-column:1/-1;font-family:var(--serif);font-size:1.35rem;margin:0 0 4px}
+.tool{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.tool .shot{border:0;border-bottom:1px solid var(--rule);border-radius:0;box-shadow:none}
+.tool .shot:hover{transform:none}
+.tool-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.tool h4{margin:0 0 8px;font-family:var(--serif);font-size:1.18rem}
+.tool p{margin:0 0 16px;color:var(--ink-2);font-size:.95rem}
+.tool .link{margin-top:auto;align-self:flex-start;font-size:.92rem}
+@media(max-width:880px){.also{grid-template-columns:1fr}}
 
-.shot{margin:-26px -26px 22px;aspect-ratio:1200/750;overflow:hidden;border-bottom:1px solid var(--stroke);background:var(--bg)}
-.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
-.card:hover .shot img{transform:scale(1.03)}
+/* About and how I build */
+.two{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,80px)}
+@media(max-width:880px){.two{grid-template-columns:1fr}}
+.prose p{margin:0 0 18px;color:var(--ink-2);max-width:60ch}
+.prose p:first-child{font-family:var(--serif);font-size:1.3rem;line-height:1.5;color:var(--ink)}
+.side h3{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+.side ul{margin:0 0 34px;padding:0;list-style:none}
+.side li{padding:10px 0;border-top:1px solid var(--rule);color:var(--ink)}
+.side li:last-child{border-bottom:1px solid var(--rule)}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px;margin-top:clamp(48px,8vh,80px)}
+@media(max-width:640px){.rules{grid-template-columns:1fr}}
+.rules h4{margin:0 0 6px;font-family:var(--serif);font-size:1.15rem}
+.rules p{margin:0;color:var(--ink-2);font-size:.97rem}
 
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
-.card h3{margin:0;font-size:1.16rem;letter-spacing:-.018em;font-weight:700;line-height:1.3;color:var(--text)}
-.card h3 a{transition:color .2s}
-.card:hover h3 a{color:var(--accent)}
-.card .repo{font-family:var(--mono);font-size:.72rem;color:var(--text-faint);margin-top:4px;word-break:break-all}
-.card p.desc{color:var(--text-dim);font-size:.92rem;margin:15px 0 0}
+/* Contact */
+.contact{text-align:left}
+.contact h2{max-width:20ch}
+.contact p{color:var(--ink-2);max-width:56ch;margin:20px 0 0}
+footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:.85rem;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+footer a{color:var(--ink-2)}
 
-.badge{font-family:var(--mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:6px;flex:none;
-  border:1px solid rgba(15,157,107,.4);background:rgba(15,157,107,.12);color:var(--accent-3)}
-
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
-.tag{font-family:var(--mono);font-size:.7rem;padding:4px 9px;border-radius:6px;background:rgba(15,27,54,.04);border:1px solid var(--stroke);color:var(--text-dim)}
-
-.card-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:20px;font-family:var(--mono);font-size:.74rem;color:var(--text-faint)}
-.card-foot .meta{display:inline-flex;align-items:center;gap:6px}
-.lang-dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--text-faint)}
-.card-foot .spacer{margin-left:auto}
-.card-foot a.src{color:var(--text-dim);transition:color .2s;display:inline-flex;align-items:center;gap:6px}
-.card-foot a.src:hover{color:var(--accent)}
-.card-foot svg{width:14px;height:14px}
-
-.skel{pointer-events:none}
-.skel .bar{height:11px;border-radius:6px;background:linear-gradient(90deg,rgba(15,27,54,.05),rgba(15,27,54,.10),rgba(15,27,54,.05));background-size:200% 100%;animation:shimmer 1.5s infinite}
-@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
-
-.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.principle{padding:26px;border-radius:var(--radius);border:1px solid var(--stroke);background:var(--surface);box-shadow:var(--shadow)}
-.principle .ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:16px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 16px rgba(37,99,235,.28)}
-.principle .ico svg{width:19px;height:19px;stroke:#fff}
-.principle h3{margin:0 0 8px;font-size:1rem;font-weight:700;letter-spacing:-.012em;color:var(--text)}
-.principle p{margin:0;color:var(--text-dim);font-size:.9rem}
-
-.about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
-@media(max-width:860px){.about{grid-template-columns:1fr}}
-.about-copy p{margin:0 0 16px;font-size:1.05rem;color:var(--text-dim);max-width:62ch}
-.about-copy p:first-child{color:var(--text)}
-.about-copy p:last-child{margin-bottom:0}
-.focus{padding:24px 26px;border-radius:var(--radius);border:1px solid var(--stroke);background:var(--surface);box-shadow:var(--shadow)}
-.focus h3{margin:0 0 14px;font-size:.78rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
-.focus ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.focus li{display:flex;gap:10px;align-items:baseline;font-size:.95rem;color:var(--text)}
-.focus li::before{content:"";width:7px;height:7px;border-radius:50%;flex:none;transform:translateY(-1px);background:linear-gradient(135deg,var(--accent),var(--accent-3))}
-
-.quote-band{padding:clamp(48px,7vh,88px) 0}
-.pull{text-align:center;position:relative}
-.pull blockquote{margin:0 auto;max-width:22ch;font-size:clamp(1.5rem,3.6vw,2.35rem);line-height:1.32;letter-spacing:-.02em;font-weight:700;
-  background:linear-gradient(160deg,#0e1c3d 25%,#2563eb 96%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.pull blockquote::before{content:"\201C";display:block;font-family:var(--mono);font-size:3.2rem;line-height:0;margin-bottom:26px;
-  background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.pull figcaption{margin-top:26px;font-family:var(--mono);font-size:.82rem;color:var(--text-dim);display:flex;flex-direction:column;gap:3px;align-items:center}
-.pull figcaption b{font-weight:700;color:var(--accent)}
-.pull figcaption span{color:var(--text-faint);font-size:.76rem}
-
-.contact{border-radius:24px;padding:clamp(36px,6vw,64px);text-align:center;border:1px solid var(--stroke);box-shadow:var(--shadow);
-  background:radial-gradient(ellipse 70% 130% at 50% 0%,rgba(37,99,235,.10),transparent 70%),radial-gradient(ellipse 80% 120% at 100% 100%,rgba(16,185,129,.12),transparent 65%),var(--surface)}
-.contact h2{margin-bottom:12px}
-.contact p{color:var(--text-dim);max-width:48ch;margin:0 auto 28px}
-.contact .hero-actions{justify-content:center}
-
-footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--text-faint)}
-
-.avatar{background:var(--avatar) center/cover no-repeat;border-radius:50%;flex:none}
-.avatar-lg{width:84px;height:84px;margin-bottom:22px;border:3px solid #fff;box-shadow:0 8px 26px rgba(15,27,54,.18)}
-.avatar-sm{width:26px;height:26px;border:1px solid var(--stroke)}
-
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.rv.in{opacity:1;transform:none}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .rv{opacity:1;transform:none}
-  html{scroll-behavior:auto}
-}
-
-
-/* Interactive: shot button, video, lightbox */
-.shot{display:block;border:0;border-bottom:1px solid var(--stroke);padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;position:relative}
-.shot .shotvid{width:100%;height:100%;object-fit:cover;display:block}
-.shot.gone{display:none}
-.playbadge{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;padding:5px 10px;border-radius:999px;background:rgba(37,99,235,.94);color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.4);pointer-events:none}
-.shotcount,.expand{position:absolute;right:12px;bottom:12px;font-family:var(--mono);font-size:.66rem;padding:5px 9px;border-radius:8px;background:rgba(14,28,61,.72);color:#fff;opacity:0;transition:opacity .25s;pointer-events:none}
-.expand{font-size:.95rem;padding:3px 8px}
-.card:hover .shotcount,.card:hover .expand{opacity:1}
-.grid{perspective:1200px}
-.card{transform-style:preserve-3d}
-.banner-wrap{overflow:hidden}
-.banner{will-change:transform}
-
-.lb{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:4vw;background:rgba(8,14,30,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+/* Gallery */
+.lb{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:56px 4vw;background:rgba(10,14,12,.9)}
 .lb[hidden]{display:none}
-.lb-stage{max-width:92vw;max-height:86vh;display:flex;align-items:center;justify-content:center}
-.lb-stage img,.lb-stage video{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#fff}
-.lb-close{position:absolute;top:18px;right:20px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:1.05rem;cursor:pointer;transition:background .2s}
-.lb-close:hover{background:rgba(255,255,255,.18)}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;transition:background .2s}
-.lb-nav:hover{background:rgba(255,255,255,.18)}
-.lb-prev{left:20px}.lb-next{right:20px}
-.lb-count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.78rem;color:rgba(255,255,255,.82)}
-@media(max-width:560px){.lb-nav{width:42px;height:42px;font-size:1.35rem}}
+.lb figure{margin:0;max-width:min(1400px,92vw);display:flex;flex-direction:column;align-items:center}
+.lb img,.lb video{max-width:100%;max-height:78vh;border-radius:8px;background:#fff}
+.lb figcaption{margin-top:14px;color:#d9ddd9;font-size:.9rem;text-align:center}
+.lb button{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:1.3rem;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.18)}
+.lb .x{top:16px;right:16px}
+.lb .prev{left:16px;top:50%;margin-top:-23px}
+.lb .next{right:16px;top:50%;margin-top:-23px}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="bg-fx"></div>
-<div class="grid-fx"></div>
 
-<header class="nav">
-  <div class="wrap nav-in">
-    <span class="brand"><span class="avatar avatar-sm" aria-hidden="true"></span>John Morrissey</span>
-    <a class="link" href="#about">About</a>
-    <a class="link" href="#work">Work</a>
-    <a class="link" href="#approach">Approach</a>
-    <a class="link" href="#contact">Contact</a>
-    <a class="btn" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zm4.94 12.24V6.17H2.54v7.22h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.01-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.21.66 1.21 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.2v.02h-.01l.01-.02V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4z"/></svg>
-      LinkedIn
-    </a>
-    <a class="btn" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-      GitHub
-    </a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="#">John Morrissey</a>
+    <nav aria-label="Sections"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <a class="btn sm" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </header>
 
 <main>
-  <div class="banner-wrap"><img class="banner" src="banner.jpg" alt="Advancing Learning Through Technology"></div>
-  <!-- ── HERO ───────────────────────────────────────────── -->
-  <div class="wrap hero">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <div class="who">
-          <div class="avatar avatar-lg" role="img" aria-label="Photo of John Morrissey"></div>
-          <div>
-            <p class="who-name">John Morrissey</p>
-            <p class="who-role">Educational Technology &middot; Project Manager &middot; VLE Innovation &middot; Higher Education (UL)</p>
-          </div>
-        </div>
-        <h1>Small tools that<br>make Brightspace<br><span class="accent">do more.</span></h1>
-        <p class="lede">
-          I build free, open-source tools for Brightspace&nbsp;(D2L) that take the slow, fiddly jobs
-          off lecturers and administrators. Each one is a single HTML file you paste into a course:
-          no servers, no API keys, no IT ticket.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#work">See the tools &rarr;</a>
-          <a class="btn" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        </div>
+  <section class="wrap intro">
+    <div>
+      <p class="kicker"><b>John Morrissey</b> · Educational Technology · Project Manager · VLE Innovation · University of Limerick</p>
+      <h1>I build tools that make Brightspace <em>easier</em> for the people who teach on it.</h1>
+      <p class="lead">At the University of Limerick I work with lecturers and administrators on our VLE.
+        When Brightspace makes a routine job slow, I build something to fix it, then give it away.
+        Six of those tools are below. Each one is a single HTML file: no servers, no API keys, no IT ticket.</p>
+      <div class="actions">
+        <a class="btn solid" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn" href="#work">See the work</a>
+        <button class="btn" type="button" data-video>&#9654;&nbsp; 34-second overview</button>
       </div>
-
-      <button type="button" class="hero-video" id="seriesVideo"
-              aria-label="Play the Summer Series video: six free Brightspace tools">
-        <img src="media/summer-series-cover.jpg" alt="" loading="eager">
-        <span class="hv-play" aria-hidden="true">&#9654;</span>
-        <span class="hv-cap">Six free tools &middot; 34 sec</span>
-      </button>
     </div>
+    <img class="portrait" src="media/john-morrissey.jpg" alt="John Morrissey" width="176" height="176">
+  </section>
 
-    <div class="stats rv" id="stats">
-      <div class="stat"><div class="n" data-stat="tools">6</div><div class="l">Open-source tools</div></div>
-      <div class="stat"><div class="n">1</div><div class="l">HTML file each</div></div>
-      <div class="stat"><div class="n">0</div><div class="l">Servers or API keys</div></div>
-      <div class="stat"><div class="n">Any</div><div class="l">Brightspace instance</div></div>
-    </div>
-  </div>
-
-  <!-- ── ABOUT ──────────────────────────────────────────── -->
-  <section id="about">
+  <section class="sec" id="work">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div>
-          <span class="sec-num">01 / ABOUT</span>
-          <h2>About me</h2>
-        </div>
+      <div class="sec-h">
+        <h2>Selected work</h2>
+        <p>Released free over summer 2026 as the Summer Series. Click any screenshot to see more.</p>
       </div>
-      <div class="about rv">
-        <div class="about-copy">
-          <p>I work in educational technology at the University of Limerick, managing projects and
-             driving innovation in our VLE, Brightspace&nbsp;(D2L), alongside the lecturers and
-             administrators who use it every day.</p>
-          <p>Over summer 2026 I built and open-sourced six tools, the Summer Series, for jobs that
-             Brightspace's own screens make slow: setting up groups and uploading grades in bulk,
-             spotting assessment deadlines piling up across a programme, seeing who replies to whom
-             in a discussion, and putting names to faces in a new class.</p>
-          <p>Each one runs on Brightspace's own APIs with the viewer's existing login, so it works on
-             any Brightspace instance and needs nothing more than an HTML editor to install.</p>
+
+      <article class="case">
+        <div class="case-text">
+          <span class="case-num">01</span>
+          <h3>Discussion Network</h3>
+          <dl>
+            <dt>The problem</dt>
+            <dd class="problem">Brightspace shows a discussion one thread at a time. It can't tell you whether students are talking to each other, or only to the lecturer.</dd>
+            <dt>What it does</dt>
+            <dd>Draws the whole board as a network: each person a dot, each reply an arrow, coloured by who wrote it. A board where staff do all the answering turns orange at a glance. The headline figure is the share of students who got a reply from another student, and it names the ones nobody replied to. A slider replays the term week by week.</dd>
+          </dl>
+          <div class="case-links">
+            <button class="link" type="button" data-gallery="discussion">Screenshots (3)</button>
+            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Discussion_Network" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+          <p class="built">Valence API · force-directed graph · reply matrix · CSV export · light and dark</p>
         </div>
-        <div class="focus">
+        <div class="case-pic">
+          <button class="shot" type="button" data-gallery="discussion" aria-label="Open Discussion Network screenshots">
+            <img src="media/discussion-network/1.jpg" alt="Discussion Network: a reply graph of a course forum with headline figures above it" width="1400" height="880" loading="lazy">
+          </button>
+          <span class="shot-cap">Mock course data, names blurred.</span>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-text">
+          <span class="case-num">02</span>
+          <h3>Deadline Radar</h3>
+          <dl>
+            <dt>The problem</dt>
+            <dd class="problem">Every module sets its own deadlines, so nobody sees when a programme piles its heaviest assessments into the same week.</dd>
+            <dt>What it does</dt>
+            <dd>Pick the modules and it plots every assignment and quiz window on one timeline, weighted by each item's share of the module grade rather than a raw count. A month, week and day grid flags the collision weeks, and special-access extensions appear as the second deadline they really are. Read-only.</dd>
+          </dl>
+          <div class="case-links">
+            <button class="link" type="button" data-gallery="radar">Demo and screenshots (5)</button>
+            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Deadline_Radar" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+          <p class="built">Valence API · grade weighting · special access · saved selections · light and dark</p>
+        </div>
+        <div class="case-pic">
+          <button class="shot trim" type="button" data-gallery="radar" aria-label="Open Deadline Radar demo and screenshots">
+            <img src="media/deadline-radar/2.jpg" alt="Deadline Radar: assignment and quiz windows for three modules on one timeline" width="1400" height="700" loading="lazy">
+          </button>
+          <span class="shot-cap">Mock modules.</span>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-text">
+          <span class="case-num">03</span>
+          <h3>Class Faces</h3>
+          <dl>
+            <dt>The problem</dt>
+            <dd class="problem">Learning a new class's names from a text classlist is slow, and the photos sit one profile at a time.</dd>
+            <dt>What it does</dt>
+            <dd>Turns the classlist into a searchable grid of faces for a visual roll call, or a printable face sheet for week one. Sort by first or last name, filter by group or role, and hover a face to jump to that student's Class Progress.</dd>
+          </dl>
+          <div class="case-links">
+            <button class="link" type="button" data-gallery="faces">Screenshot</button>
+            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Class_Faces" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+          <p class="built">Classlist API · print layout · group filters · pronouns</p>
+        </div>
+        <div class="case-pic">
+          <button class="shot" type="button" data-gallery="faces" aria-label="Open Class Faces screenshot">
+            <img src="media/class-faces/1.jpg" alt="Class Faces: a grid of student photos with search, sort and filter controls" width="1400" height="788" loading="lazy">
+          </button>
+          <span class="shot-cap">Photos blurred for privacy.</span>
+        </div>
+      </article>
+
+      <div class="also">
+        <h3 class="also-h">Also built</h3>
+        <article class="tool">
+          <button class="shot" type="button" data-gallery="admin" aria-label="Open Admin Accelerator screenshot"><img src="screenshots/admin-accelerator.jpg" alt="Admin Accelerator launcher with four tools" width="1200" height="750" loading="lazy"></button>
+          <div class="tool-body">
+            <h4>Admin Accelerator</h4>
+            <p>Four admin jobs behind one launcher: bulk groups with descriptions written from an Excel sheet, bulk grades with private feedback, and discussion and checklist exports.</p>
+            <a class="link" href="https://github.com/John-Morrissey-UL/admin-accelerator-suite" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+        </article>
+        <article class="tool">
+          <button class="shot" type="button" data-gallery="status" aria-label="Open Course Status Widget screenshots"><img src="screenshots/course-status.jpg" alt="Course Status Widget showing an active course with a toggle" width="1200" height="750" loading="lazy"></button>
+          <div class="tool-body">
+            <h4>Course Status Widget</h4>
+            <p>Shows whether a course is active and switches it from the course homepage, without a trip to Course Admin or any extra permissions.</p>
+            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Course_Status_Widget" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+        </article>
+        <article class="tool">
+          <button class="shot" type="button" data-gallery="grouper" aria-label="Open Assignment Grouper screenshot"><img src="screenshots/assignment-grouper.jpg" alt="Assignment Grouper's command-line menu" width="1200" height="750" loading="lazy"></button>
+          <div class="tool-body">
+            <h4>Assignment Grouper</h4>
+            <p>A Python utility that sorts a bulk submission download into one folder per student and one subfolder per assignment, and previews every move first.</p>
+            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace-Assignment-Grouper" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="sec-h"><h2>About</h2></div>
+      <div class="two">
+        <div class="prose">
+          <p>I work in educational technology at the University of Limerick, managing projects and looking for better ways to use our VLE, Brightspace&nbsp;(D2L).</p>
+          <p>Most of my time goes on the people who use it every day: lecturers setting up modules, administrators running the term, and the students on the other side. The tools on this page came out of that work. Each one started as a question someone asked that Brightspace's own screens couldn't answer quickly.</p>
+          <p>I share them openly because the same questions come up at every institution that runs Brightspace, and a single file that anyone can paste into a course is the easiest kind of tool to pass on.</p>
+        </div>
+        <aside class="side">
           <h3>What I work on</h3>
           <ul>
             <li>VLE innovation in higher education</li>
-            <li>Educational technology project management</li>
+            <li>Educational technology projects</li>
             <li>Brightspace (D2L) tools and widgets</li>
-            <li>Bulk admin: groups, grades and feedback</li>
             <li>Learning analytics and data visualisation</li>
-            <li>Brightspace Valence and LP REST APIs</li>
-            <li>Python and Power Automate workflows</li>
+            <li>Brightspace APIs, Python and Power Automate</li>
             <li>Short explainer videos for staff</li>
           </ul>
-        </div>
+        </aside>
+      </div>
+
+      <div class="rules">
+        <div><h4>One file, nothing to install</h4><p>Everything lives in a single HTML file. Paste it into a Brightspace page or widget and save. Nothing to compile or host.</p></div>
+        <div><h4>Your login, your permissions</h4><p>The tools use the viewer's own Brightspace session, so nobody sees anything they couldn't already see, and no passwords or keys are stored.</p></div>
+        <div><h4>Works on any Brightspace</h4><p>API versions and course details are picked up automatically. Nothing is tied to one university.</p></div>
+        <div><h4>Read-only unless it says so</h4><p>Reporting tools only read. The ones that change things, like grades or groups, say so plainly and show a preview first.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ── WORK ───────────────────────────────────────────── -->
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div>
-          <span class="sec-num">02 / WORK</span>
-          <h2>The tools</h2>
-          <p>Six free tools for Brightspace. Click a screenshot to see more, or open the source on GitHub.</p>
-        </div>
+  <section class="sec" id="contact">
+    <div class="wrap contact">
+      <h2>Using Brightspace and want to talk?</h2>
+      <p>Whether you'd like to try one of these tools, adapt it for your institution, or work on something together, the quickest way to reach me is LinkedIn. Everything here is free and open source under CC&nbsp;BY-NC-SA&nbsp;4.0.</p>
+      <div class="actions">
+        <a class="btn solid" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+        <a class="btn" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID</a>
       </div>
-
-      <div class="filters rv" id="filters" role="group" aria-label="Filter projects"></div>
-      <div class="grid" id="grid" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <!-- ── APPROACH ───────────────────────────────────────── -->
-  <section id="approach">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div>
-          <span class="sec-num">03 / APPROACH</span>
-          <h2>How these are built</h2>
-          <p>Every project follows the same constraints. They are what make the tools deployable by
-             someone who has a course, an HTML editor, and no IT ticket.</p>
-        </div>
-      </div>
-
-      <div class="principles rv">
-        <div class="principle">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/><path d="M9 9v11"/></svg></div>
-          <h3>One file, no build</h3>
-          <p>Markup, styles, scripts and icons live in a single HTML file. Copy, paste into a
-             Brightspace page or widget, save. Nothing to compile, nothing to host.</p>
-        </div>
-        <div class="principle">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-          <h3>Your session, your permissions</h3>
-          <p>Calls ride on the viewer's own Brightspace login. Nobody sees anything the platform
-             wouldn't already show them, and no credentials are stored anywhere.</p>
-        </div>
-        <div class="principle">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
-          <h3>Portable across instances</h3>
-          <p>API versions are auto-detected and course context comes from Brightspace's own
-             replacement strings. Nothing is hard-coded to one institution.</p>
-        </div>
-        <div class="principle">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-          <h3>Read-only unless asked</h3>
-          <p>Reporting tools only ever issue GETs. The ones that do write — grades, groups, course
-             status — say so plainly and preview the change first.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── QUOTE ──────────────────────────────────────────── -->
-  <section class="quote-band" aria-label="Philosophy">
-    <div class="wrap">
-      <figure class="pull rv">
-        <blockquote>A good tool for a busy lecturer is one they can paste in and forget about — no install, no ticket, no training. If it needs a manual, I haven't finished it.</blockquote>
-        <figcaption><b>John Morrissey</b><span>Educational Technology &middot; University of Limerick</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ── CONTACT ────────────────────────────────────────── -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact rv">
-        <span class="sec-num">04 / CONTACT</span>
-        <h2>Let's talk</h2>
-        <p>Using Brightspace and want to try one of these, adapt it for your institution, or work on
-           something together? Message me on LinkedIn. Everything here is free and open source under
-           CC&nbsp;BY-NC-SA&nbsp;4.0.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Message me on LinkedIn</a>
-          <a class="btn" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">All repositories</a>
-          <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID</a>
-        </div>
-      </div>
-      <footer>
-        <span>&copy; <span id="yr"></span> John Morrissey</span>
-        <span>Built as a single static file &middot; hosted on GitHub Pages</span>
-      </footer>
     </div>
   </section>
 </main>
 
+<div class="wrap">
+  <footer>
+    <span>&copy; <span id="yr">2026</span> John Morrissey · University of Limerick</span>
+    <span>Tools licensed CC BY-NC-SA 4.0 · <a href="https://github.com/John-Morrissey-UL/John-Morrissey-UL.github.io">Source of this site</a></span>
+  </footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Screenshots">
+  <figure><div id="lb-stage"></div><figcaption id="lb-cap"></figcaption></figure>
+  <button class="prev" type="button" aria-label="Previous">&#8249;</button>
+  <button class="next" type="button" aria-label="Next">&#8250;</button>
+  <button class="x" type="button" aria-label="Close">&#10005;</button>
+</div>
+
 <script>
-(function(){
+(function () {
   "use strict";
-
-  var USER = "John-Morrissey-UL";
-  var REDUCE = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-
-  /* ── Hand-written descriptions & tags, keyed by repo name (lowercased).
-        Anything not listed here still renders, using GitHub's own description. ── */
-  var CURATED = {
-    "admin-accelerator-suite": {
-      title: "Admin Accelerator Suite",
-      shot: "admin-accelerator.jpg",
-      featured: true,
-      badge: "Flagship",
-      desc: "Four admin tools behind one launcher, in a single HTML file: a bulk group creator that "+
-            "generates dynamic group descriptions from an Excel sheet, a bulk grades &amp; feedback "+
-            "uploader (including private instructor comments), and full reporting and Excel export "+
-            "for discussions and checklists. Each tool builds inside its own isolated in-page frame "+
-            "so they never conflict.",
-      tags:["Valence API","Excel I/O","Isolated frames","XSRF-aware","Single file"]
-    },
-    "brightspace_discussion_network": {
-      title: "Discussion Network",
-      shot: "discussion-network.jpg",
-      badge: "New",
-      desc: "Draws a discussion board as the reply structure it actually is: every person a dot, every "+
-            "reply an arrow, sized by how much they post and coloured by who wrote the reply — so a board "+
-            "where staff are doing all the answering turns orange in front of you. The headline number is "+
-            "the share of students who got a reply from another student. It also names the students nobody "+
-            "replied to, and a week slider replays the term. Large cohorts switch to a sortable reply matrix.",
-      tags:["Data viz","Force layout","Reply matrix","CSV export","Light + dark"]
-    },
-    "brightspace_deadline_radar": {
-      title: "Deadline Radar",
-      shot: "deadline-radar.jpg",
-      featured: true,
-      badge: "Read-only",
-      desc: "Answers a question no single-course view in Brightspace can: is my programme piling heavy "+
-            "assessment into the same few weeks? Plots assignment and quiz windows across every module "+
-            "you pick onto one timeline, weighted by each item's share of the module grade rather than "+
-            "a raw count. A month → week → day pressure grid flags collisions, and special-access "+
-            "extensions surface as a second, hidden deadline.",
-      tags:["Data viz","Grade weighting","Special access","localStorage","Light + dark"]
-    },
-    "brightspace_class_faces": {
-      title: "Class Faces",
-      shot: "class-faces.jpg",
-      desc: "Turns a classlist into a grid of faces so you can learn who's who, take a visual roll call, "+
-            "or print a face sheet for week one. Search as you type, sort by first or last name, filter "+
-            "by group category or role, and hover any photo for a card linking straight to that student's "+
-            "Class Progress.",
-      tags:["Classlist API","Print layout","Group filters","Pronouns"]
-    },
-    "brightspace_course_status_widget": {
-      title: "Course Status Widget",
-      shot: "course-status.jpg",
-      desc: "Shows whether a course is active or inactive right on the homepage, with an inline toggle — "+
-            "no navigating to Course Admin. Reads status via the LP REST API where permitted and falls "+
-            "back to driving Brightspace's own edit form in a hidden iframe, so it needs no extra "+
-            "permissions at all.",
-      tags:["LP REST API","Graceful fallback","Zero extra perms","D2L theming"]
-    },
-    "brightspace-assignment-grouper": {
-      title: "Assignment Grouper",
-      shot: "assignment-grouper.jpg",
-      desc: "A Python utility for the mess that is a bulk D2L submission download. Unzips the exports and "+
-            "reorganises them into one folder per student with a subfolder per assignment. Because "+
-            "institutions customise submission folder naming, it splits a real folder name into parts and "+
-            "asks which ones identify the student — then remembers your answer, and previews every folder "+
-            "it would create before touching anything.",
-      tags:["Python 3","Stdlib only","Interactive CLI","Long-path aware"]
-    }
+  // Each tool's pictures, in order; a video first where there is one.
+  var GALLERY = {
+    discussion: { name: "Discussion Network", items: ["media/discussion-network/1.jpg", "media/discussion-network/2.jpg", "media/discussion-network/3.jpg"] },
+    radar: { name: "Deadline Radar", items: [{ video: "media/deadline-radar.mp4" }, "media/deadline-radar/1.jpg", "media/deadline-radar/2.jpg", "media/deadline-radar/3.jpg", "media/deadline-radar/4.jpg"] },
+    faces: { name: "Class Faces", items: ["media/class-faces/1.jpg"] },
+    admin: { name: "Admin Accelerator", items: ["media/admin-accelerator/1.jpg"] },
+    status: { name: "Course Status Widget", items: ["media/course-status/1.jpg", "media/course-status/2.jpg"] },
+    grouper: { name: "Assignment Grouper", items: ["media/assignment-grouper/1.jpg"] },
+    overview: { name: "Summer Series overview", items: [{ video: "media/summer-series.mp4", poster: "media/summer-series-cover.jpg", sound: true }] }
   };
 
-  /* ── Fallback snapshot: used only if the GitHub API is unreachable
-        (offline, or the 60 req/hr unauthenticated rate limit is hit). ── */
-  var FALLBACK = [
-    {name:"Brightspace_Discussion_Network",language:"HTML",stargazers_count:0,pushed_at:"2026-07-29T10:47:00Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Discussion_Network",description:""},
-    {name:"Brightspace_Deadline_Radar",language:"HTML",stargazers_count:0,pushed_at:"2026-07-21T13:56:57Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Deadline_Radar",description:""},
-    {name:"Brightspace_Class_Faces",language:"HTML",stargazers_count:0,pushed_at:"2026-07-21T11:59:56Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Class_Faces",description:""},
-    {name:"Brightspace-Assignment-Grouper",language:"Python",stargazers_count:0,pushed_at:"2026-07-08T11:16:34Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace-Assignment-Grouper",description:""},
-    {name:"Brightspace_Course_Status_Widget",language:"HTML",stargazers_count:0,pushed_at:"2026-07-01T08:28:48Z",html_url:"https://github.com/John-Morrissey-UL/Brightspace_Course_Status_Widget",description:"A lightweight Brightspace widget to display and toggle course active/inactive status from the course homepage"},
-    {name:"admin-accelerator-suite",language:"HTML",stargazers_count:0,pushed_at:"2026-06-23T11:29:35Z",html_url:"https://github.com/John-Morrissey-UL/admin-accelerator-suite",description:"One-file Brightspace toolkit for bulk groups, grades/feedback upload, and discussion & checklist reporting."}
-  ];
+  var lb = document.getElementById("lb"), stage = document.getElementById("lb-stage"), cap = document.getElementById("lb-cap");
+  var prev = lb.querySelector(".prev"), next = lb.querySelector(".next"), current = null, index = 0, opener = null;
 
-  /* Per-tool media for the lightbox (raw screenshots + optional demo video). */
-  var MEDIA = {
-    "brightspace_discussion_network":{imgs:["media/discussion-network/1.jpg","media/discussion-network/2.jpg","media/discussion-network/3.jpg"]},
-    "brightspace_deadline_radar":{video:"media/deadline-radar.mp4",imgs:["media/deadline-radar/1.jpg","media/deadline-radar/2.jpg","media/deadline-radar/3.jpg","media/deadline-radar/4.jpg"]},
-    "brightspace_class_faces":{imgs:["media/class-faces/1.jpg"]},
-    "brightspace_course_status_widget":{imgs:["media/course-status/1.jpg","media/course-status/2.jpg"]},
-    "admin-accelerator-suite":{imgs:["media/admin-accelerator/1.jpg"]},
-    "brightspace-assignment-grouper":{imgs:["media/assignment-grouper/1.jpg"]}
-  };
-
-  var LANG_COLOR = {HTML:"#e34c26",Python:"#3572A5",JavaScript:"#f1e05a",CSS:"#563d7c",TypeScript:"#3178c6"};
-
-  var $  = function(s,r){return (r||document).querySelector(s)};
-  var esc = function(s){var d=document.createElement("div");d.textContent=s==null?"":s;return d.innerHTML};
-
-  function prettyName(n){
-    return n.replace(/[-_]+/g," ").replace(/\bBrightspace\b\s*/i,"").trim()
-            .replace(/\b\w/g,function(c){return c.toUpperCase()}) || n;
-  }
-  function ago(iso){
-    if(!iso) return "—";
-    var d=new Date(iso), days=Math.floor((Date.now()-d)/864e5);
-    if(days<1) return "today";
-    if(days<30) return days+"d ago";
-    if(days<365) return Math.floor(days/30)+"mo ago";
-    return Math.floor(days/365)+"y ago";
-  }
-
-  var ICON_GH = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>';
-  var ICON_STAR = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25l2.29 4.64 5.12.75-3.7 3.61.87 5.1L8 11.94l-4.58 2.41.87-5.1L.59 5.64l5.12-.75L8 .25z"/></svg>';
-
-  /* ── Render ─────────────────────────────────────────── */
-  var grid = $("#grid"), filtersEl = $("#filters"), all = [];
-
-  function skeletons(n){
-    var h="";
-    for(var i=0;i<n;i++){
-      h+='<div class="card skel"><div class="bar" style="width:55%;height:16px"></div>'+
-         '<div class="bar" style="width:35%;margin-top:10px"></div>'+
-         '<div class="bar" style="width:100%;margin-top:20px"></div>'+
-         '<div class="bar" style="width:92%;margin-top:9px"></div>'+
-         '<div class="bar" style="width:70%;margin-top:9px"></div>'+
-         '<div class="bar" style="width:45%;margin-top:26px"></div></div>';
+  function show(i) {
+    var items = current.items;
+    index = (i + items.length) % items.length;
+    var it = items[index], label = current.name + (items.length > 1 ? " · " + (index + 1) + " of " + items.length : "");
+    if (typeof it === "string") {
+      stage.innerHTML = '<img src="' + it + '" alt="' + label + '">';
+    } else {
+      // Tool demos are silent screen recordings and loop muted; the overview has a voiceover.
+      stage.innerHTML = '<video src="' + it.video + '"' + (it.poster ? ' poster="' + it.poster + '"' : "") +
+        ' controls autoplay playsinline' + (it.sound ? "" : " muted loop") + '></video>';
     }
-    grid.innerHTML=h;
+    cap.textContent = label;
+    prev.hidden = next.hidden = items.length < 2;
+  }
+  function open(key) {
+    current = GALLERY[key];
+    if (!current) return;
+    opener = document.activeElement;
+    show(0);
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+    lb.querySelector(".x").focus();
+  }
+  function close() {
+    lb.hidden = true;
+    stage.innerHTML = "";
+    document.body.style.overflow = "";
+    if (opener) opener.focus();
   }
 
-  function cardHTML(r){
-    var c = CURATED[r.name.toLowerCase()] || {};
-    var title = c.title || prettyName(r.name);
-    // the hand-written blurb first: GitHub's one-liners are much thinner
-    var desc  = c.desc || esc(r.description) || "No description yet — open the repository for details.";
-    var tags  = c.tags || [];
-    var lang  = r.language || "—";
-    var color = LANG_COLOR[lang] || "#6b7484";
-
-    var med = MEDIA[r.name.toLowerCase()], shot='';
-    if(c.shot){
-      var inner = (med && med.video)
-        ? '<video class="shotvid" muted loop playsinline preload="none" poster="screenshots/'+esc(c.shot)+'"><source src="'+esc(med.video)+'" type="video/mp4"></video><span class="playbadge">\u25B6 demo</span>'
-        : '<img src="screenshots/'+esc(c.shot)+'" alt="Screenshot of '+esc(title)+'" loading="lazy" onerror="this.closest(\'.shot\').classList.add(\'gone\')">';
-      var n = med ? (med.imgs?med.imgs.length:0)+(med.video?1:0) : 0;
-      shot = '<button type="button" class="shot" data-repo="'+esc(r.name.toLowerCase())+'" aria-label="View '+esc(title)+' screenshots">'+
-             inner + (n>1?'<span class="shotcount">'+n+' shots</span>':'<span class="expand">\u2922</span>') + '</button>';
-    }
-
-    return '<article class="card'+(c.featured?" featured":"")+'" data-lang="'+esc(lang)+'">'+
-      shot+
-      '<div class="card-top">'+
-        '<div>'+
-          '<h3><a href="'+esc(r.html_url)+'" target="_blank" rel="noopener">'+esc(title)+'</a></h3>'+
-        '</div>'+
-        (c.badge?'<span class="badge">'+esc(c.badge)+'</span>':'')+
-      '</div>'+
-      '<p class="desc">'+desc+'</p>'+
-      (tags.length?'<div class="tags">'+tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join("")+'</div>':'')+
-      '<div class="card-foot">'+
-        '<span class="meta"><span class="lang-dot" style="background:'+color+'"></span>'+esc(lang)+'</span>'+
-        (r.stargazers_count ? '<span class="meta">'+ICON_STAR+' '+r.stargazers_count+'</span>' : '')+
-        '<span class="meta">Updated '+ago(r.pushed_at)+'</span>'+
-        '<a class="src spacer" href="'+esc(r.html_url)+'" target="_blank" rel="noopener">'+ICON_GH+' Source</a>'+
-      '</div>'+
-    '</article>';
-  }
-
-  function render(list){
-    grid.innerHTML = list.map(cardHTML).join("");
-    Array.prototype.forEach.call(grid.children,function(el){
-      el.addEventListener("mousemove",function(e){
-        var b=el.getBoundingClientRect();
-        el.style.setProperty("--mx",(e.clientX-b.left)+"px");
-        el.style.setProperty("--my",(e.clientY-b.top)+"px");
-        if(!REDUCE){
-          var px=(e.clientX-b.left)/b.width-.5, py=(e.clientY-b.top)/b.height-.5;
-          el.style.transition="transform .08s var(--ease)";
-          el.style.transform="translateY(-4px) rotateX("+(-py*5).toFixed(2)+"deg) rotateY("+(px*5).toFixed(2)+"deg)";
-        }
-      });
-      el.addEventListener("mouseleave",function(){
-        el.style.transition=""; el.style.transform="";
-        var v=el.querySelector(".shotvid"); if(v) v.pause();
-      });
-      var vid=el.querySelector(".shotvid");
-      if(vid) el.addEventListener("mouseenter",function(){ var p=vid.play(); if(p&&p.catch) p.catch(function(){}); });
-      var sb=el.querySelector(".shot");
-      if(sb) sb.addEventListener("click",function(){ openLightbox(sb.getAttribute("data-repo")); });
-    });
-  }
-
-  function buildFilters(list){
-    var langs = [];
-    list.forEach(function(r){
-      var l = r.language || "Other";
-      if(langs.indexOf(l)<0) langs.push(l);
-    });
-    var opts = ["All"].concat(langs.sort());
-    filtersEl.innerHTML = opts.map(function(l,i){
-      return '<button class="chip" type="button" aria-pressed="'+(i===0)+'" data-f="'+esc(l)+'">'+esc(l)+'</button>';
-    }).join("");
-    filtersEl.addEventListener("click",function(e){
-      var b = e.target.closest(".chip"); if(!b) return;
-      Array.prototype.forEach.call(filtersEl.children,function(c){c.setAttribute("aria-pressed", c===b)});
-      var f = b.dataset.f;
-      render(f==="All" ? all : all.filter(function(r){return (r.language||"Other")===f}));
-    });
-  }
-
-  function countUp(el,target,dur){
-    if(!el) return;
-    if(REDUCE || target<=0){ el.textContent=String(target); return; }
-    var t0=performance.now();
-    (function step(now){
-      var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3);
-      el.textContent=String(Math.round(target*e));
-      if(p<1) requestAnimationFrame(step);
-    })(performance.now());
-  }
-
-  function setStats(list){
-    countUp($('[data-stat="tools"]'), list.length, 1000);  // the other three are fixed facts
-  }
-
-  function boot(list){
-    // curated projects first (featured first), then everything else by recency
-    var order = Object.keys(CURATED);
-    list.sort(function(a,b){
-      var ia = order.indexOf(a.name.toLowerCase()), ib = order.indexOf(b.name.toLowerCase());
-      if(ia<0) ia = 99; if(ib<0) ib = 99;
-      if(ia!==ib) return ia-ib;
-      return new Date(b.pushed_at) - new Date(a.pushed_at);
-    });
-    all = list;
-    setStats(list);
-    buildFilters(list);
-    render(list);
-    observeReveal();
-  }
-
-  /* Repos to keep off the page (this showcase site itself, lowercased). */
-  var HIDE = [(USER+".github.io").toLowerCase()];
-  function keep(r){ return !r.fork && !r.archived && HIDE.indexOf(r.name.toLowerCase())<0; }
-
-  skeletons(4);
-
-  fetch("https://api.github.com/users/"+USER+"/repos?per_page=100&sort=pushed")
-    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function(d){ boot(d.filter(keep)); })
-    .catch(function(){ boot(FALLBACK.slice()); });
-
-  /* ── Reveal on scroll ───────────────────────────────── */
-  function observeReveal(){
-    var els = document.querySelectorAll(".rv:not(.in)");
-    if(!("IntersectionObserver" in window)){
-      Array.prototype.forEach.call(els,function(e){e.classList.add("in")});
-      return;
-    }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
-      });
-    },{rootMargin:"0px 0px -8% 0px",threshold:.08});
-    Array.prototype.forEach.call(els,function(e){io.observe(e)});
-  }
-  observeReveal();
-
-  /* ── Sticky nav border ──────────────────────────────── */
-  var nav = $("header.nav"), bannerEl = document.querySelector(".banner");
-  addEventListener("scroll",function(){
-    nav.classList.toggle("stuck", scrollY > 8);
-    if(bannerEl && !REDUCE) bannerEl.style.transform="scale("+(1+Math.min(scrollY,700)*0.00018)+")";
-  },{passive:true});
-
-  /* Lightbox */
-  var lbEl,lbStage,lbCount,lbPrev,lbNext,lbItems=[],lbIdx=0,lbReturn=null;
-  function buildLightbox(){
-    lbEl=document.createElement("div"); lbEl.className="lb"; lbEl.hidden=true;
-    lbEl.innerHTML='<button class="lb-close" aria-label="Close">\u2715</button>'+
-      '<button class="lb-nav lb-prev" aria-label="Previous">\u2039</button>'+
-      '<div class="lb-stage"></div>'+
-      '<button class="lb-nav lb-next" aria-label="Next">\u203A</button>'+
-      '<div class="lb-count"></div>';
-    document.body.appendChild(lbEl);
-    lbStage=lbEl.querySelector(".lb-stage"); lbCount=lbEl.querySelector(".lb-count");
-    lbPrev=lbEl.querySelector(".lb-prev"); lbNext=lbEl.querySelector(".lb-next");
-    lbEl.querySelector(".lb-close").addEventListener("click",closeLightbox);
-    lbPrev.addEventListener("click",function(){lbShow(lbIdx-1)});
-    lbNext.addEventListener("click",function(){lbShow(lbIdx+1)});
-    lbEl.addEventListener("click",function(e){ if(e.target===lbEl) closeLightbox(); });
-    addEventListener("keydown",function(e){
-      if(lbEl.hidden) return;
-      if(e.key==="Escape") closeLightbox();
-      else if(e.key==="ArrowLeft") lbShow(lbIdx-1);
-      else if(e.key==="ArrowRight") lbShow(lbIdx+1);
-    });
-  }
-  function openItems(items){
-    if(!items || !items.length) return;
-    lbItems=items; lbReturn=document.activeElement;
-    lbShow(0); lbEl.hidden=false; document.body.style.overflow="hidden";
-    lbEl.querySelector(".lb-close").focus();
-  }
-  function openLightbox(repo){
-    var m=MEDIA[repo]; if(!m) return;
-    var name=(CURATED[repo]&&CURATED[repo].title)||prettyName(repo);
-    var items=[]; if(m.video) items.push({t:"video",s:m.video});
-    (m.imgs||[]).forEach(function(s){items.push({t:"img",s:s,alt:name+" screenshot"})});
-    openItems(items);
-  }
-  function closeLightbox(){
-    lbEl.hidden=true; lbStage.innerHTML=""; document.body.style.overflow="";
-    if(lbReturn&&lbReturn.focus) lbReturn.focus();  // back to the screenshot or video that opened it
-  }
-  function lbShow(i){
-    lbIdx=(i+lbItems.length)%lbItems.length; var it=lbItems[lbIdx];
-    /* Tool demos are silent screen recordings, so they loop muted. The series
-       video has a voiceover: play it once, with sound. The click that opened
-       the lightbox counts as the gesture browsers require for unmuted autoplay,
-       and the controls are there if a browser blocks it anyway. */
-    lbStage.innerHTML = it.t==="video"
-      ? (it.sound
-          ? '<video src="'+it.s+'" poster="'+(it.poster||'')+'" controls autoplay playsinline></video>'
-          : '<video src="'+it.s+'" controls autoplay loop muted playsinline></video>')
-      : '<img src="'+it.s+'" alt="'+esc((it.alt||"Screenshot")+" "+(lbIdx+1)+" of "+lbItems.length)+'">';
-    var multi=lbItems.length>1;
-    lbPrev.style.display=lbNext.style.display=multi?"":"none";
-    lbCount.style.display=multi?"":"none";
-    lbCount.textContent=(lbIdx+1)+" / "+lbItems.length;
-  }
-  buildLightbox();
-
-  var sv = $("#seriesVideo");
-  if(sv) sv.addEventListener("click",function(){
-    openItems([{t:"video",s:"media/summer-series.mp4",poster:"media/summer-series-cover.jpg",sound:true}]);
+  document.addEventListener("click", function (e) {
+    var g = e.target.closest("[data-gallery]");
+    if (g) { open(g.getAttribute("data-gallery")); return; }
+    if (e.target.closest("[data-video]")) { open("overview"); return; }
+  });
+  lb.querySelector(".x").addEventListener("click", close);
+  prev.addEventListener("click", function () { show(index - 1); });
+  next.addEventListener("click", function () { show(index + 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (lb.hidden) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") show(index - 1);
+    else if (e.key === "ArrowRight") show(index + 1);
   });
 
-  $("#yr").textContent = new Date().getFullYear();
+  var top = document.querySelector(".top");
+  addEventListener("scroll", function () { top.classList.toggle("stuck", scrollY > 8); }, { passive: true });
+  document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
 </body>

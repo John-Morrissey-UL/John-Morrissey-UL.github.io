@@ -1,46 +1,33 @@
 # John-Morrissey-UL.github.io
 
-Source for my showcase site, live at **<https://john-morrissey-ul.github.io>**.
-
-A single, self-contained static page listing my Brightspace (D2L) tooling —
-zero-dependency, single-file widgets that run on the viewer's own session.
+Source for my site, live at **<https://john-morrissey-ul.github.io>**: who I am,
+and the free Brightspace (D2L) tools I've built and released.
 
 ## What's here
 
-- **`index.html`** — the entire site. One file: markup, styles, scripts and
-  icons inline. No build step, no framework, no external fonts, scripts or
-  stylesheets.
-
-## How it works
-
-- **Live project list.** Repositories, descriptions, stars, language and
-  "last push" are fetched from the GitHub REST API on each load, so new repos
-  appear automatically and everything stays current.
-- **Curated extras.** Display titles, tags, badges and the "featured" flag live
-  in a `CURATED` object near the top of the `<script>`, keyed by repo name.
-  The curated blurb is shown first; GitHub's own description is the fallback for
-  a repo without one. A repo not listed still renders automatically.
-- **Offline fallback.** If the API is unreachable (or the 60 req/hr
-  unauthenticated limit is hit), the page renders from a hardcoded snapshot
-  instead of an empty grid.
-- **Embedded avatar.** My GitHub photo is inlined as a base64 data URI — no
-  external hotlink — to match the zero-dependency style of the tools it lists.
+- **`index.html`**: the whole page. Markup, styles and the small gallery script
+  are inline. No build step, no framework, no external fonts or scripts.
+- **`media/`**: my photo, each tool's screenshots and demo videos, and the
+  Summer Series overview video.
+- **`screenshots/`**: the framed pictures used on the smaller "Also built" cards.
+- **`og-image.jpg`**: the preview image LinkedIn shows when the link is shared.
 
 ## Editing
 
 Everything is in `index.html`:
 
-- **Colours and spacing** — the `:root` block at the top of `<style>`.
-- **Hero copy** — the `<div class="wrap hero">` block.
-- **Project copy** — the `CURATED` object in the `<script>`.
-- **"Approach" cards** — the `.principles` block.
+- **Colours and type**: the `:root` block at the top of `<style>` (with a dark
+  version under `prefers-color-scheme: dark`).
+- **Opening statement**: the `.intro` section.
+- **Case studies**: one `<article class="case">` per featured tool, with the
+  problem, what it does and its screenshot. The "Also built" cards follow.
+- **Gallery pictures**: the `GALLERY` object in the script, keyed by the
+  `data-gallery` names used on the buttons.
 
 ## Deploying
 
 It's a GitHub user site: pushes to `main` are served from the repo root by
-GitHub Pages automatically. Open `index.html` directly in a browser to preview
-locally — the GitHub API call is CORS-friendly from `file://`, so the cards
-populate normally.
+GitHub Pages. Open `index.html` directly in a browser to preview it locally.
 
 ## Licence
 
