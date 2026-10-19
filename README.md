@@ -16,11 +16,13 @@ and the free Brightspace (D2L) tools I've built and released.
 
 Everything is in `index.html`:
 
-- **Colours and type**: the `:root` block at the top of `<style>` (with a dark
-  version under `prefers-color-scheme: dark`).
-- **Opening statement**: the `.intro` section.
-- **Case studies**: one `<article class="case">` per featured tool, with the
-  problem, what it does and its screenshot. The "Also built" cards follow.
+- **Colours and type**: the `:root` block at the top of `<style>`. System fonts
+  only (San Francisco on Apple devices, Segoe UI on Windows).
+- **Layout**: full-width bands (`.band`, plus `.grey` or `.dark`), each with a
+  centred headline and a large screenshot (`.screen`). The opening is `.hero`,
+  the "Built to just work" tiles are `.tiles`, the three admin tools are `.cards`.
+- **Scroll motion**: anything with class `rise` fades up into view; it's off for
+  visitors who ask for reduced motion.
 - **Gallery pictures**: the `GALLERY` object in the script, keyed by the
   `data-gallery` names used on the buttons.
 

@@ -8,14 +8,15 @@
 <meta name="author" content="John Morrissey">
 <link rel="canonical" href="https://john-morrissey-ul.github.io/">
 <meta property="og:title" content="John Morrissey · Educational Technology | Project Manager | VLE Innovation">
-<meta property="og:description" content="I build free tools that make Brightspace (D2L) easier for the people who teach on it. One HTML file each, no servers, no API keys, no IT ticket.">
+<meta property="og:description" content="Brightspace, made easier. Free tools for the people who teach on it. One HTML file each, no servers, no API keys, no IT ticket.">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="John Morrissey">
 <meta property="og:url" content="https://john-morrissey-ul.github.io/">
 <meta property="og:image" content="https://john-morrissey-ul.github.io/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="theme-color" content="#f7f5f0">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"John Morrissey","jobTitle":"Educational Technology | Project Manager | VLE Innovation",
  "image":"https://john-morrissey-ul.github.io/media/john-morrissey.jpg",
@@ -24,346 +25,290 @@
  "sameAs":["https://www.linkedin.com/in/johnwmorrissey/","https://github.com/John-Morrissey-UL","https://orcid.org/0009-0005-4153-3908"],
  "knowsAbout":["Brightspace (D2L)","Educational technology","Project management","VLE innovation","Learning analytics","Data visualisation"]}
 </script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2316241f'/><text x='50' y='69' text-anchor='middle' font-size='56' font-family='Georgia,serif' fill='%23f7f5f0'>J</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d1d1f'/><text x='50' y='68' text-anchor='middle' font-size='54' font-weight='600' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' fill='%23ffffff'>J</text></svg>">
+<script>document.documentElement.className = "js";</script>
 
 <style>
-/* An editorial page: one serif for headlines, the system sans for reading, one accent colour,
-   and the work itself as the decoration. No external fonts or scripts. */
+/* A product-page layout: big centred headlines, generous space, full-width bands in white,
+   light grey and black, and the tools' own screens as the hero images. System fonts only
+   (San Francisco on Apple devices, Segoe UI on Windows). */
 :root{
-  --paper:#f7f5f0;
-  --paper-2:#efece4;
-  --card:#ffffff;
-  --ink:#16241f;
-  --ink-2:#4a554f;
-  --ink-3:#7a837d;
-  --rule:#ddd8cc;
-  --accent:#0b6b4f;
-  --accent-ink:#ffffff;
-  --shade:0 1px 2px rgba(22,36,31,.06),0 12px 32px rgba(22,36,31,.10);
-  --serif:Charter,"Bitstream Charter","Sitka Text",Cambria,"Iowan Old Style",Georgia,serif;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --wrap:min(1120px,calc(100vw - 40px));
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    --paper:#121614;
-    --paper-2:#1a1f1c;
-    --card:#1c221f;
-    --ink:#ecebe6;
-    --ink-2:#b4b9b3;
-    --ink-3:#848b86;
-    --rule:#2c332f;
-    --accent:#5cc79f;
-    --accent-ink:#0d1a15;
-    --shade:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);
-  }
+  --text:#1d1d1f;
+  --muted:#6e6e73;
+  --faint:#86868b;
+  --grey:#f5f5f7;
+  --line:#d2d2d7;
+  --blue:#0071e3;
+  --link:#0066cc;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI Variable Display","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --wide:min(1180px,calc(100vw - 44px));
+  --narrow:min(760px,calc(100vw - 44px));
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:inherit}
+body{margin:0;background:#fff;color:var(--text);font:17px/1.47 var(--font);letter-spacing:-.022em;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-.wrap{width:var(--wrap);margin-inline:auto}
-::selection{background:color-mix(in srgb,var(--accent) 22%,transparent)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid rgba(0,113,227,.6);outline-offset:3px;border-radius:6px}
 
-/* Top bar */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);
-  backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
-.top.stuck{border-bottom-color:var(--rule)}
-.top-in{display:flex;align-items:center;gap:28px;height:60px}
-.mark{font-family:var(--serif);font-size:1.15rem;font-weight:700;text-decoration:none;margin-right:auto;letter-spacing:-.005em}
-.top nav{display:flex;gap:24px}
-.top nav a{font-size:.92rem;color:var(--ink-2);text-decoration:none}
-.top nav a:hover{color:var(--ink)}
-@media(max-width:640px){.top nav{display:none}}
+/* Bar across the top */
+.bar{position:sticky;top:0;z-index:50;height:48px;background:rgba(255,255,255,.8);
+  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
+.bar-in{width:var(--wide);height:100%;margin:auto;display:flex;align-items:center;gap:30px;font-size:12px;letter-spacing:-.01em}
+.bar-name{font-size:15px;font-weight:600;color:var(--text);margin-right:auto}
+.bar-in a.nav{color:var(--text);opacity:.8}
+.bar-in a.nav:hover{opacity:1;text-decoration:none}
+@media(max-width:640px){.bar-in a.nav{display:none}}
 
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font:600 .92rem/1 var(--sans);
-  text-decoration:none;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
-.btn:hover{border-color:var(--ink-3)}
-.btn.solid{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.btn svg{width:16px;height:16px;flex:none}
-.btn.sm{padding:8px 14px;font-size:.86rem}
-.link{color:var(--accent);font-weight:600;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
-.link:hover{border-bottom-color:var(--accent)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 22px;border-radius:980px;border:0;
+  background:var(--blue);color:#fff;font:400 17px/1.18 var(--font);letter-spacing:-.022em;cursor:pointer;transition:background .2s}
+.pill:hover{background:#0077ed;text-decoration:none}
+.pill.small{padding:5px 12px;font-size:12px;letter-spacing:-.01em}
+.more{font:400 17px/1.18 var(--font);color:var(--link);background:none;border:0;padding:0;cursor:pointer;letter-spacing:-.022em}
+.more::after{content:" \203A";font-size:1.15em}
+.more:hover{text-decoration:underline}
+.ctas{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:center;margin-top:30px}
+
+/* Bands */
+.band{padding:clamp(72px,12vh,120px) 0 0;overflow:hidden;text-align:center}
+.band.grey{background:var(--grey)}
+.band.dark{background:#000;color:#f5f5f7}
+.band.dark .sub{color:#a1a1a6}
+.band.dark .more{color:#2997ff}
+.band.pad{padding-bottom:clamp(72px,12vh,120px)}
+.eyebrow{display:block;font-size:clamp(19px,2vw,24px);font-weight:600;letter-spacing:.004em;margin-bottom:6px}
+.eyebrow.orange{color:#e8590c}
+.eyebrow.teal{color:#2ec5b6}
+.eyebrow.purple{color:#8e44ec}
+h1,h2{font-weight:700;letter-spacing:-.025em;margin:0 auto;line-height:1.05}
+h1{font-size:clamp(48px,9vw,96px);letter-spacing:-.035em}
+h2{font-size:clamp(38px,6vw,64px);max-width:16ch}
+.sub{font-size:clamp(19px,2.1vw,24px);line-height:1.38;color:var(--muted);max-width:var(--narrow);margin:18px auto 0;letter-spacing:.004em;font-weight:400}
 
 /* Opening */
-.intro{padding:clamp(56px,10vh,112px) 0 clamp(56px,9vh,96px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(32px,6vw,80px);align-items:start}
-.kicker{margin:0 0 22px;font-size:.88rem;color:var(--ink-3);letter-spacing:.01em}
-.kicker b{color:var(--ink);font-weight:600}
-h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.3rem,5.4vw,4.1rem);line-height:1.08;letter-spacing:-.02em;margin:0;max-width:17ch}
-h1 em{font-style:italic;color:var(--accent)}
-.intro p.lead{margin:28px 0 0;max-width:56ch;font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--ink-2)}
-.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:34px}
-.portrait{width:clamp(132px,15vw,176px);height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:var(--shade);margin-top:8px}
-@media(max-width:760px){.intro{grid-template-columns:1fr}.portrait{order:-1;width:104px;margin:0}}
+.hero{padding-top:clamp(48px,8vh,88px)}
+.who{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;text-align:left}
+.who img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.who b{display:block;font-size:17px;font-weight:600}
+.who span{display:block;font-size:13px;color:var(--muted);letter-spacing:-.005em}
+@media(max-width:560px){.who{flex-direction:column;text-align:center}}
 
-/* Section headings */
-.sec{padding:clamp(56px,9vh,104px) 0;border-top:1px solid var(--rule)}
-.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(36px,6vh,64px)}
-h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.15;letter-spacing:-.015em;margin:0}
-.sec-h p{margin:0;color:var(--ink-3);font-size:.95rem;max-width:44ch}
+/* Screens: the tools, shown big */
+.screen{display:block;width:var(--wide);margin:clamp(48px,8vh,72px) auto 0;padding:0;border:0;background:none;cursor:zoom-in}
+.screen .frame{border-radius:18px 18px 0 0;overflow:hidden;border:1px solid rgba(0,0,0,.08);border-bottom:0;
+  box-shadow:0 30px 80px rgba(0,0,0,.12),0 8px 24px rgba(0,0,0,.06);background:#fff}
+.band.dark .screen .frame{border-color:rgba(255,255,255,.12);box-shadow:0 30px 90px rgba(41,151,255,.18)}
+.screen img{width:100%;height:auto}
+/* Deadline Radar's shot has wide empty margins: show the timeline card only */
+.screen.trim .frame img{width:116.667%;max-width:none;margin:-1.833% 0 -9% -8.333%}
+.note{font-size:12px;color:var(--faint);margin:14px 0 0;padding-bottom:28px}
+.band.dark .note{color:#6e6e73}
 
-/* Case studies: text on one side, the tool on the other, swapping sides as you go down */
-.case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:center}
-.case + .case{margin-top:clamp(64px,11vh,120px)}
-.case:nth-of-type(even){grid-template-columns:minmax(0,7fr) minmax(0,5fr)}  /* the picture keeps the wide column */
-.case:nth-of-type(even) .case-text{order:2}
-.case-num{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:1.05rem}
-.case h3{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.05rem);line-height:1.15;letter-spacing:-.01em;margin:6px 0 18px}
-.case dl{margin:0}
-.case dt{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-top:18px}
-.case dt:first-child{margin-top:0}
-.case dd{margin:6px 0 0;color:var(--ink-2)}
-.case dd.problem{font-family:var(--serif);font-size:1.12rem;line-height:1.5;color:var(--ink)}
-.case-links{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-size:.95rem}
-.case-links button{background:none;border:0;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);padding:0;font:inherit;cursor:pointer}
-.built{margin-top:16px;font-size:.84rem;color:var(--ink-3)}
-@media(max-width:880px){.case,.case:nth-of-type(even){grid-template-columns:1fr}.case:nth-of-type(even) .case-text{order:0}.case-pic{order:-1}}
+/* Highlights grid */
+.tiles{width:var(--wide);margin:clamp(40px,7vh,64px) auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;text-align:left}
+.tile{background:#fff;border-radius:28px;padding:34px 30px 36px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between}
+.tile.wide{grid-column:span 2}
+.tile .big{font-size:clamp(56px,6.4vw,84px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.tile .big.word{font-size:clamp(40px,4.4vw,60px);letter-spacing:-.03em;line-height:1.05}
+.tile .big.blue{color:var(--blue)}
+.tile .big.green{color:#1a9e5a}
+.tile .big.orange{color:#e8590c}
+.tile .big.purple{color:#8e44ec}
+.tile p{margin:18px 0 0;font-size:19px;line-height:1.32;font-weight:600;letter-spacing:.004em}
+.tile p span{color:var(--muted);font-weight:400}
+@media(max-width:960px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.tiles{grid-template-columns:1fr}.tile.wide{grid-column:auto}.tile{min-height:0}}
 
-.shot{display:block;width:100%;padding:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--card);
-  box-shadow:var(--shade);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
-.shot:hover{transform:translateY(-3px)}
-.shot img{width:100%;height:auto}
-/* Deadline Radar's picture has wide empty margins: show just the timeline (x 100-1300, y 22-592 of 1400x700) */
-.shot.trim img{width:116.667%;max-width:none;margin:-1.833% 0 -9% -8.333%}
-.shot-cap{display:block;margin-top:10px;font-size:.82rem;color:var(--ink-3);text-align:right}
+/* More tools */
+.cards{width:var(--wide);margin:clamp(40px,7vh,64px) auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;text-align:left}
+.card{background:var(--grey);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.card-body{padding:28px 30px 32px;display:flex;flex-direction:column;flex:1}
+.card h3{margin:0;font-size:24px;font-weight:700;letter-spacing:-.015em;line-height:1.15}
+.card p{margin:10px 0 20px;color:var(--muted);font-size:17px}
+.card .more{margin-top:auto;align-self:flex-start}
+.card .pic{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.card .pic img{width:100%;height:auto}
+@media(max-width:900px){.cards{grid-template-columns:1fr;max-width:560px}}
 
-/* Also built: three smaller tools */
-.also{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(72px,12vh,128px)}
-.also-h{grid-column:1/-1;font-family:var(--serif);font-size:1.35rem;margin:0 0 4px}
-.tool{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
-.tool .shot{border:0;border-bottom:1px solid var(--rule);border-radius:0;box-shadow:none}
-.tool .shot:hover{transform:none}
-.tool-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
-.tool h4{margin:0 0 8px;font-family:var(--serif);font-size:1.18rem}
-.tool p{margin:0 0 16px;color:var(--ink-2);font-size:.95rem}
-.tool .link{margin-top:auto;align-self:flex-start;font-size:.92rem}
-@media(max-width:880px){.also{grid-template-columns:1fr}}
+/* About */
+.about-photo{width:132px;height:132px;border-radius:50%;object-fit:cover;margin:0 auto 26px}
+.about p{max-width:var(--narrow);margin:18px auto 0;font-size:clamp(19px,2vw,21px);line-height:1.5;color:var(--muted);letter-spacing:.004em}
+.about p strong{color:var(--text);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:var(--narrow);margin:34px auto 0;padding:0;list-style:none}
+.chips li{padding:9px 18px;border-radius:980px;background:#fff;font-size:15px;color:var(--text)}
+.ways{width:var(--wide);margin:clamp(48px,8vh,72px) auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;text-align:left;border-top:1px solid var(--line);padding-top:36px}
+.ways h3{margin:0 0 6px;font-size:17px;font-weight:600}
+.ways p{margin:0;font-size:15px;line-height:1.45;color:var(--muted)}
+@media(max-width:900px){.ways{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.ways{grid-template-columns:1fr}}
 
-/* About and how I build */
-.two{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,80px)}
-@media(max-width:880px){.two{grid-template-columns:1fr}}
-.prose p{margin:0 0 18px;color:var(--ink-2);max-width:60ch}
-.prose p:first-child{font-family:var(--serif);font-size:1.3rem;line-height:1.5;color:var(--ink)}
-.side h3{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
-.side ul{margin:0 0 34px;padding:0;list-style:none}
-.side li{padding:10px 0;border-top:1px solid var(--rule);color:var(--ink)}
-.side li:last-child{border-bottom:1px solid var(--rule)}
-.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px;margin-top:clamp(48px,8vh,80px)}
-@media(max-width:640px){.rules{grid-template-columns:1fr}}
-.rules h4{margin:0 0 6px;font-family:var(--serif);font-size:1.15rem}
-.rules p{margin:0;color:var(--ink-2);font-size:.97rem}
+/* Footer */
+footer{background:var(--grey);font-size:12px;line-height:1.33;color:var(--faint);letter-spacing:-.01em}
+.foot{width:var(--wide);margin:auto;padding:18px 0 22px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;border-top:1px solid var(--line)}
+.foot a{color:#424245}
 
-/* Contact */
-.contact{text-align:left}
-.contact h2{max-width:20ch}
-.contact p{color:var(--ink-2);max-width:56ch;margin:20px 0 0}
-footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:.85rem;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
-footer a{color:var(--ink-2)}
+/* Gentle rise into view as you scroll (only with JS, never with reduced motion) */
+.js .rise{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rise.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rise{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
 /* Gallery */
-.lb{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:56px 4vw;background:rgba(10,14,12,.9)}
+.lb{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:60px 4vw;background:rgba(0,0,0,.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .lb[hidden]{display:none}
 .lb figure{margin:0;max-width:min(1400px,92vw);display:flex;flex-direction:column;align-items:center}
-.lb img,.lb video{max-width:100%;max-height:78vh;border-radius:8px;background:#fff}
-.lb figcaption{margin-top:14px;color:#d9ddd9;font-size:.9rem;text-align:center}
-.lb button{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:1.3rem;cursor:pointer}
-.lb button:hover{background:rgba(255,255,255,.18)}
-.lb .x{top:16px;right:16px}
-.lb .prev{left:16px;top:50%;margin-top:-23px}
-.lb .next{right:16px;top:50%;margin-top:-23px}
-
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.lb img,.lb video{max-width:100%;max-height:78vh;border-radius:12px;background:#fff}
+.lb figcaption{margin-top:16px;color:#d2d2d7;font-size:14px}
+.lb button{position:absolute;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:20px;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.24)}
+.lb .x{top:18px;right:18px}
+.lb .prev{left:18px;top:50%;margin-top:-22px}
+.lb .next{right:18px;top:50%;margin-top:-22px}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap top-in">
-    <a class="mark" href="#">John Morrissey</a>
-    <nav aria-label="Sections"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-    <a class="btn sm" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">LinkedIn</a>
+<header class="bar">
+  <div class="bar-in">
+    <a class="bar-name" href="#">John Morrissey</a>
+    <a class="nav" href="#highlights">Overview</a>
+    <a class="nav" href="#discussion">Tools</a>
+    <a class="nav" href="#about">About</a>
+    <a class="pill small" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Connect</a>
   </div>
 </header>
 
 <main>
-  <section class="wrap intro">
-    <div>
-      <p class="kicker"><b>John Morrissey</b> · Educational Technology · Project Manager · VLE Innovation · University of Limerick</p>
-      <h1>I build tools that make Brightspace <em>easier</em> for the people who teach on it.</h1>
-      <p class="lead">At the University of Limerick I work with lecturers and administrators on our VLE.
-        When Brightspace makes a routine job slow, I build something to fix it, then give it away.
-        Six of those tools are below. Each one is a single HTML file: no servers, no API keys, no IT ticket.</p>
-      <div class="actions">
-        <a class="btn solid" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        <a class="btn" href="#work">See the work</a>
-        <button class="btn" type="button" data-video>&#9654;&nbsp; 34-second overview</button>
-      </div>
+  <section class="band hero">
+    <div class="who rise">
+      <img src="media/john-morrissey.jpg" alt="" width="52" height="52">
+      <div><b>John Morrissey</b><span>Educational Technology · Project Manager · VLE Innovation · University of Limerick</span></div>
     </div>
-    <img class="portrait" src="media/john-morrissey.jpg" alt="John Morrissey" width="176" height="176">
+    <h1 class="rise">Brightspace,<br>made easier.</h1>
+    <p class="sub rise">Free tools for the people who teach on it. Each one is a single file you paste into a course. No servers. No API keys. No IT ticket.</p>
+    <div class="ctas rise">
+      <a class="pill" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <button class="more" type="button" data-gallery="overview">Watch the 34-second overview</button>
+    </div>
+    <button class="screen rise" type="button" data-gallery="discussion" aria-label="Open Discussion Network screenshots">
+      <div class="frame"><img src="media/discussion-network/1.jpg" alt="Discussion Network showing who replies to whom in a course forum" width="1400" height="880"></div>
+    </button>
   </section>
 
-  <section class="sec" id="work">
-    <div class="wrap">
-      <div class="sec-h">
-        <h2>Selected work</h2>
-        <p>Released free over summer 2026 as the Summer Series. Click any screenshot to see more.</p>
-      </div>
-
-      <article class="case">
-        <div class="case-text">
-          <span class="case-num">01</span>
-          <h3>Discussion Network</h3>
-          <dl>
-            <dt>The problem</dt>
-            <dd class="problem">Brightspace shows a discussion one thread at a time. It can't tell you whether students are talking to each other, or only to the lecturer.</dd>
-            <dt>What it does</dt>
-            <dd>Draws the whole board as a network: each person a dot, each reply an arrow, coloured by who wrote it. A board where staff do all the answering turns orange at a glance. The headline figure is the share of students who got a reply from another student, and it names the ones nobody replied to. A slider replays the term week by week.</dd>
-          </dl>
-          <div class="case-links">
-            <button class="link" type="button" data-gallery="discussion">Screenshots (3)</button>
-            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Discussion_Network" target="_blank" rel="noopener">Source on GitHub</a>
-          </div>
-          <p class="built">Valence API · force-directed graph · reply matrix · CSV export · light and dark</p>
-        </div>
-        <div class="case-pic">
-          <button class="shot" type="button" data-gallery="discussion" aria-label="Open Discussion Network screenshots">
-            <img src="media/discussion-network/1.jpg" alt="Discussion Network: a reply graph of a course forum with headline figures above it" width="1400" height="880" loading="lazy">
-          </button>
-          <span class="shot-cap">Mock course data, names blurred.</span>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-text">
-          <span class="case-num">02</span>
-          <h3>Deadline Radar</h3>
-          <dl>
-            <dt>The problem</dt>
-            <dd class="problem">Every module sets its own deadlines, so nobody sees when a programme piles its heaviest assessments into the same week.</dd>
-            <dt>What it does</dt>
-            <dd>Pick the modules and it plots every assignment and quiz window on one timeline, weighted by each item's share of the module grade rather than a raw count. A month, week and day grid flags the collision weeks, and special-access extensions appear as the second deadline they really are. Read-only.</dd>
-          </dl>
-          <div class="case-links">
-            <button class="link" type="button" data-gallery="radar">Demo and screenshots (5)</button>
-            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Deadline_Radar" target="_blank" rel="noopener">Source on GitHub</a>
-          </div>
-          <p class="built">Valence API · grade weighting · special access · saved selections · light and dark</p>
-        </div>
-        <div class="case-pic">
-          <button class="shot trim" type="button" data-gallery="radar" aria-label="Open Deadline Radar demo and screenshots">
-            <img src="media/deadline-radar/2.jpg" alt="Deadline Radar: assignment and quiz windows for three modules on one timeline" width="1400" height="700" loading="lazy">
-          </button>
-          <span class="shot-cap">Mock modules.</span>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-text">
-          <span class="case-num">03</span>
-          <h3>Class Faces</h3>
-          <dl>
-            <dt>The problem</dt>
-            <dd class="problem">Learning a new class's names from a text classlist is slow, and the photos sit one profile at a time.</dd>
-            <dt>What it does</dt>
-            <dd>Turns the classlist into a searchable grid of faces for a visual roll call, or a printable face sheet for week one. Sort by first or last name, filter by group or role, and hover a face to jump to that student's Class Progress.</dd>
-          </dl>
-          <div class="case-links">
-            <button class="link" type="button" data-gallery="faces">Screenshot</button>
-            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Class_Faces" target="_blank" rel="noopener">Source on GitHub</a>
-          </div>
-          <p class="built">Classlist API · print layout · group filters · pronouns</p>
-        </div>
-        <div class="case-pic">
-          <button class="shot" type="button" data-gallery="faces" aria-label="Open Class Faces screenshot">
-            <img src="media/class-faces/1.jpg" alt="Class Faces: a grid of student photos with search, sort and filter controls" width="1400" height="788" loading="lazy">
-          </button>
-          <span class="shot-cap">Photos blurred for privacy.</span>
-        </div>
-      </article>
-
-      <div class="also">
-        <h3 class="also-h">Also built</h3>
-        <article class="tool">
-          <button class="shot" type="button" data-gallery="admin" aria-label="Open Admin Accelerator screenshot"><img src="screenshots/admin-accelerator.jpg" alt="Admin Accelerator launcher with four tools" width="1200" height="750" loading="lazy"></button>
-          <div class="tool-body">
-            <h4>Admin Accelerator</h4>
-            <p>Four admin jobs behind one launcher: bulk groups with descriptions written from an Excel sheet, bulk grades with private feedback, and discussion and checklist exports.</p>
-            <a class="link" href="https://github.com/John-Morrissey-UL/admin-accelerator-suite" target="_blank" rel="noopener">Source on GitHub</a>
-          </div>
-        </article>
-        <article class="tool">
-          <button class="shot" type="button" data-gallery="status" aria-label="Open Course Status Widget screenshots"><img src="screenshots/course-status.jpg" alt="Course Status Widget showing an active course with a toggle" width="1200" height="750" loading="lazy"></button>
-          <div class="tool-body">
-            <h4>Course Status Widget</h4>
-            <p>Shows whether a course is active and switches it from the course homepage, without a trip to Course Admin or any extra permissions.</p>
-            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace_Course_Status_Widget" target="_blank" rel="noopener">Source on GitHub</a>
-          </div>
-        </article>
-        <article class="tool">
-          <button class="shot" type="button" data-gallery="grouper" aria-label="Open Assignment Grouper screenshot"><img src="screenshots/assignment-grouper.jpg" alt="Assignment Grouper's command-line menu" width="1200" height="750" loading="lazy"></button>
-          <div class="tool-body">
-            <h4>Assignment Grouper</h4>
-            <p>A Python utility that sorts a bulk submission download into one folder per student and one subfolder per assignment, and previews every move first.</p>
-            <a class="link" href="https://github.com/John-Morrissey-UL/Brightspace-Assignment-Grouper" target="_blank" rel="noopener">Source on GitHub</a>
-          </div>
-        </article>
-      </div>
+  <section class="band grey pad" id="highlights">
+    <h2 class="rise">Built to just work.</h2>
+    <p class="sub rise">Six tools, released free over one summer, all made the same way.</p>
+    <div class="tiles">
+      <div class="tile rise"><div class="big blue">1</div><p>HTML file. <span>Paste it into a course page or widget and save. Nothing to install or host.</span></p></div>
+      <div class="tile rise"><div class="big green">0</div><p>Servers or API keys. <span>Everything runs in the browser.</span></p></div>
+      <div class="tile wide rise"><div class="big word orange">Your login.</div><p>Your permissions. <span>The tools use the viewer's own Brightspace session, so nobody sees anything they couldn't already see, and nothing is stored.</span></p></div>
+      <div class="tile wide rise"><div class="big word purple">Any Brightspace.</div><p>Not just one university. <span>API versions and course details are picked up automatically, so they work wherever Brightspace runs.</span></p></div>
+      <div class="tile wide rise"><div class="big word">Read-only.</div><p>Unless it says so. <span>Reporting tools only read. Tools that change grades or groups say so plainly and preview first.</span></p></div>
     </div>
   </section>
 
-  <section class="sec" id="about">
-    <div class="wrap">
-      <div class="sec-h"><h2>About</h2></div>
-      <div class="two">
-        <div class="prose">
-          <p>I work in educational technology at the University of Limerick, managing projects and looking for better ways to use our VLE, Brightspace&nbsp;(D2L).</p>
-          <p>Most of my time goes on the people who use it every day: lecturers setting up modules, administrators running the term, and the students on the other side. The tools on this page came out of that work. Each one started as a question someone asked that Brightspace's own screens couldn't answer quickly.</p>
-          <p>I share them openly because the same questions come up at every institution that runs Brightspace, and a single file that anyone can paste into a course is the easiest kind of tool to pass on.</p>
-        </div>
-        <aside class="side">
-          <h3>What I work on</h3>
-          <ul>
-            <li>VLE innovation in higher education</li>
-            <li>Educational technology projects</li>
-            <li>Brightspace (D2L) tools and widgets</li>
-            <li>Learning analytics and data visualisation</li>
-            <li>Brightspace APIs, Python and Power Automate</li>
-            <li>Short explainer videos for staff</li>
-          </ul>
-        </aside>
-      </div>
+  <section class="band" id="discussion">
+    <span class="eyebrow orange rise">Discussion Network</span>
+    <h2 class="rise">See who's really talking.</h2>
+    <p class="sub rise">Brightspace shows a discussion one thread at a time. This draws the whole board as a network, so you can see at a glance whether students are talking to each other or only to you. It names the students nobody replied to, and a slider replays the term week by week.</p>
+    <div class="ctas rise">
+      <button class="more" type="button" data-gallery="discussion">See screenshots</button>
+      <a class="more" href="https://github.com/John-Morrissey-UL/Brightspace_Discussion_Network" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <button class="screen rise" type="button" data-gallery="discussion" aria-label="Open Discussion Network screenshots">
+      <div class="frame"><img src="media/discussion-network/2.jpg" alt="Discussion Network's reply matrix with headline figures" width="1400" height="880" loading="lazy"></div>
+    </button>
+    <p class="note">Mock course data, names blurred.</p>
+  </section>
 
-      <div class="rules">
-        <div><h4>One file, nothing to install</h4><p>Everything lives in a single HTML file. Paste it into a Brightspace page or widget and save. Nothing to compile or host.</p></div>
-        <div><h4>Your login, your permissions</h4><p>The tools use the viewer's own Brightspace session, so nobody sees anything they couldn't already see, and no passwords or keys are stored.</p></div>
-        <div><h4>Works on any Brightspace</h4><p>API versions and course details are picked up automatically. Nothing is tied to one university.</p></div>
-        <div><h4>Read-only unless it says so</h4><p>Reporting tools only read. The ones that change things, like grades or groups, say so plainly and show a preview first.</p></div>
-      </div>
+  <section class="band dark" id="radar">
+    <span class="eyebrow teal rise">Deadline Radar</span>
+    <h2 class="rise">Every deadline.<br>One timeline.</h2>
+    <p class="sub rise">Each module sets its own dates, so nobody sees when a programme piles its heaviest assessments into the same week. Deadline Radar puts them all on one timeline, weighted by how much of the grade each one is worth, and shows special-access extensions as the second deadline they really are.</p>
+    <div class="ctas rise">
+      <button class="more" type="button" data-gallery="radar">Watch the demo</button>
+      <a class="more" href="https://github.com/John-Morrissey-UL/Brightspace_Deadline_Radar" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <button class="screen trim rise" type="button" data-gallery="radar" aria-label="Open Deadline Radar demo and screenshots">
+      <div class="frame"><img src="media/deadline-radar/2.jpg" alt="Deadline Radar: assignment and quiz windows for three modules on one timeline" width="1400" height="700" loading="lazy"></div>
+    </button>
+    <p class="note">Mock modules.</p>
+  </section>
+
+  <section class="band grey" id="faces">
+    <span class="eyebrow purple rise">Class Faces</span>
+    <h2 class="rise">Learn every name by week one.</h2>
+    <p class="sub rise">Turns a classlist into a searchable grid of faces for a quick roll call, or a printable face sheet. Sort, filter by group or role, and jump straight to any student's progress.</p>
+    <div class="ctas rise">
+      <button class="more" type="button" data-gallery="faces">See it bigger</button>
+      <a class="more" href="https://github.com/John-Morrissey-UL/Brightspace_Class_Faces" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <button class="screen rise" type="button" data-gallery="faces" aria-label="Open Class Faces screenshot">
+      <div class="frame"><img src="media/class-faces/1.jpg" alt="Class Faces: a grid of student photos with search, sort and filter controls" width="1400" height="788" loading="lazy"></div>
+    </button>
+    <p class="note">Photos blurred for privacy.</p>
+  </section>
+
+  <section class="band pad" id="more">
+    <h2 class="rise">And for the admin work.</h2>
+    <p class="sub rise">Three more tools for the jobs that take an afternoon by hand.</p>
+    <div class="cards">
+      <article class="card rise">
+        <button class="pic" type="button" data-gallery="admin" aria-label="Open Admin Accelerator screenshot"><img src="screenshots/admin-accelerator.jpg" alt="Admin Accelerator launcher with four tools" width="1200" height="750" loading="lazy"></button>
+        <div class="card-body">
+          <h3>Admin Accelerator</h3>
+          <p>Bulk groups written from an Excel sheet, bulk grades with private feedback, and discussion and checklist exports. Four jobs, one launcher.</p>
+          <a class="more" href="https://github.com/John-Morrissey-UL/admin-accelerator-suite" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+      <article class="card rise">
+        <button class="pic" type="button" data-gallery="status" aria-label="Open Course Status Widget screenshots"><img src="screenshots/course-status.jpg" alt="Course Status Widget showing an active course with a toggle" width="1200" height="750" loading="lazy"></button>
+        <div class="card-body">
+          <h3>Course Status Widget</h3>
+          <p>See whether a course is active and switch it from the course homepage. No trip to Course Admin, no extra permissions.</p>
+          <a class="more" href="https://github.com/John-Morrissey-UL/Brightspace_Course_Status_Widget" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+      <article class="card rise">
+        <button class="pic" type="button" data-gallery="grouper" aria-label="Open Assignment Grouper screenshot"><img src="screenshots/assignment-grouper.jpg" alt="Assignment Grouper's command-line menu" width="1200" height="750" loading="lazy"></button>
+        <div class="card-body">
+          <h3>Assignment Grouper</h3>
+          <p>Sorts a bulk submission download into one folder per student and one per assignment, and previews every move first.</p>
+          <a class="more" href="https://github.com/John-Morrissey-UL/Brightspace-Assignment-Grouper" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section class="sec" id="contact">
-    <div class="wrap contact">
-      <h2>Using Brightspace and want to talk?</h2>
-      <p>Whether you'd like to try one of these tools, adapt it for your institution, or work on something together, the quickest way to reach me is LinkedIn. Everything here is free and open source under CC&nbsp;BY-NC-SA&nbsp;4.0.</p>
-      <div class="actions">
-        <a class="btn solid" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Message me on LinkedIn</a>
-        <a class="btn" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID</a>
-      </div>
+  <section class="band grey pad about" id="about">
+    <img class="about-photo rise" src="media/john-morrissey.jpg" alt="John Morrissey" width="132" height="132" loading="lazy">
+    <h2 class="rise">Hi, I'm John.</h2>
+    <p class="rise"><strong>I work in educational technology at the University of Limerick</strong>, managing projects and finding better ways to use our VLE, Brightspace.</p>
+    <p class="rise">Most of my time goes on the people who use it every day: lecturers setting up modules, administrators running the term, and the students on the other side. Every tool here started as a question someone asked that Brightspace couldn't answer quickly. I share them openly because the same questions come up at every institution that runs it.</p>
+    <ul class="chips rise">
+      <li>VLE innovation</li><li>Educational technology projects</li><li>Brightspace (D2L)</li>
+      <li>Learning analytics</li><li>Data visualisation</li><li>Python and Power Automate</li><li>Explainer videos</li>
+    </ul>
+  </section>
+
+  <section class="band pad" id="contact">
+    <h2 class="rise">Let's talk.</h2>
+    <p class="sub rise">Want to try one of these, adapt it for your institution, or work on something together? LinkedIn is the quickest way to reach me.</p>
+    <div class="ctas rise">
+      <a class="pill" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      <a class="more" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">All the code on GitHub</a>
+      <a class="more" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID</a>
     </div>
   </section>
 </main>
 
-<div class="wrap">
-  <footer>
-    <span>&copy; <span id="yr">2026</span> John Morrissey · University of Limerick</span>
-    <span>Tools licensed CC BY-NC-SA 4.0 · <a href="https://github.com/John-Morrissey-UL/John-Morrissey-UL.github.io">Source of this site</a></span>
-  </footer>
-</div>
+<footer>
+  <div class="foot">
+    <span>Copyright &copy; <span id="yr">2026</span> John Morrissey. University of Limerick.</span>
+    <span>The tools are free and open source under CC BY-NC-SA 4.0. · <a href="https://github.com/John-Morrissey-UL/John-Morrissey-UL.github.io">Source of this site</a></span>
+  </div>
+</footer>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Screenshots">
   <figure><div id="lb-stage"></div><figcaption id="lb-cap"></figcaption></figure>
@@ -421,8 +366,7 @@ footer a{color:var(--ink-2)}
 
   document.addEventListener("click", function (e) {
     var g = e.target.closest("[data-gallery]");
-    if (g) { open(g.getAttribute("data-gallery")); return; }
-    if (e.target.closest("[data-video]")) { open("overview"); return; }
+    if (g) open(g.getAttribute("data-gallery"));
   });
   lb.querySelector(".x").addEventListener("click", close);
   prev.addEventListener("click", function () { show(index - 1); });
@@ -435,8 +379,17 @@ footer a{color:var(--ink-2)}
     else if (e.key === "ArrowRight") show(index + 1);
   });
 
-  var top = document.querySelector(".top");
-  addEventListener("scroll", function () { top.classList.toggle("stuck", scrollY > 8); }, { passive: true });
+  // Things rise into place as they scroll into view; without IntersectionObserver they just show.
+  var rising = document.querySelectorAll(".rise");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+    rising.forEach(function (el) { io.observe(el); });
+  } else {
+    rising.forEach(function (el) { el.classList.add("in"); });
+  }
+
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
