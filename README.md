@@ -18,8 +18,8 @@ zero-dependency, single-file widgets that run on the viewer's own session.
   appear automatically and everything stays current.
 - **Curated extras.** Display titles, tags, badges and the "featured" flag live
   in a `CURATED` object near the top of the `<script>`, keyed by repo name.
-  Descriptions come from GitHub; the curated blurb is only a fallback if a repo
-  has no GitHub description. A repo not listed still renders automatically.
+  The curated blurb is shown first; GitHub's own description is the fallback for
+  a repo without one. A repo not listed still renders automatically.
 - **Offline fallback.** If the API is unreachable (or the 60 req/hr
   unauthenticated limit is hit), the page renders from a hardcoded snapshot
   instead of an empty grid.

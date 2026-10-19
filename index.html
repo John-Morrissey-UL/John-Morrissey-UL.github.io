@@ -3,12 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>John Morrissey — Brightspace tooling</title>
-<meta name="description" content="Self-contained, zero-dependency tools for Brightspace (D2L). Single-file widgets built on Brightspace's own APIs.">
-<meta property="og:title" content="John Morrissey — Brightspace tooling">
-<meta property="og:description" content="Self-contained, zero-dependency tools for Brightspace (D2L).">
-<meta property="og:type" content="website">
+<title>John Morrissey · Educational Technology | Project Manager | VLE Innovation</title>
+<meta name="description" content="John Morrissey: Educational Technology, Project Manager and VLE Innovation in Higher Education at the University of Limerick. Free, open-source tools for Brightspace (D2L): one HTML file each, no servers or API keys.">
+<meta name="author" content="John Morrissey">
+<link rel="canonical" href="https://john-morrissey-ul.github.io/">
+<meta property="og:title" content="John Morrissey · Educational Technology | Project Manager | VLE Innovation">
+<meta property="og:description" content="Free, open-source tools that make Brightspace (D2L) do more. One HTML file each, no servers, no API keys, no IT ticket.">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="John Morrissey">
 <meta property="og:url" content="https://john-morrissey-ul.github.io/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"John Morrissey","jobTitle":"Educational Technology | Project Manager | VLE Innovation",
+ "worksFor":{"@type":"CollegeOrUniversity","name":"University of Limerick","url":"https://www.ul.ie/"},
+ "url":"https://john-morrissey-ul.github.io/",
+ "sameAs":["https://www.linkedin.com/in/johnwmorrissey/","https://github.com/John-Morrissey-UL","https://orcid.org/0009-0005-4153-3908"],
+ "knowsAbout":["Brightspace (D2L)","Educational technology","Project management","VLE innovation","Learning analytics","Data visualisation"]}
+</script>
 <meta property="og:image" content="https://john-morrissey-ul.github.io/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -68,16 +78,18 @@ a{color:inherit;text-decoration:none}
 .wrap{width:min(1160px,92vw);margin-inline:auto}
 
 .banner-wrap{width:100%;line-height:0;border-bottom:1px solid var(--stroke)}
-.banner{width:100%;height:auto;display:block;max-height:340px;object-fit:cover;object-position:center}
+/* slim, so the name and role sit near the top of the first screen */
+.banner{width:100%;height:auto;display:block;max-height:200px;object-fit:cover;object-position:center}
 
 header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
   background:rgba(255,255,255,.72);border-bottom:1px solid transparent;transition:border-color .3s,background .3s,box-shadow .3s}
 header.nav.stuck{border-bottom-color:var(--stroke);background:rgba(255,255,255,.9);box-shadow:0 6px 20px rgba(15,27,54,.06)}
 .nav-in{display:flex;align-items:center;gap:22px;height:62px}
-.brand{font-family:var(--mono);font-size:.9rem;letter-spacing:-.01em;font-weight:600;margin-right:auto;display:flex;align-items:center;gap:9px;color:var(--text)}
+.brand{font-size:.98rem;letter-spacing:-.01em;font-weight:700;margin-right:auto;display:flex;align-items:center;gap:9px;color:var(--text)}
 .nav a.link{font-size:.86rem;color:var(--text-dim);transition:color .2s}
 .nav a.link:hover{color:var(--accent)}
 @media(max-width:680px){.nav a.link{display:none}}
+@media(max-width:440px){.nav-in{gap:10px}.nav-in .btn + .btn{display:none}}  /* phones: LinkedIn only; GitHub is in Contact */
 
 .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:11px;font-size:.84rem;font-weight:600;
   border:1px solid var(--stroke);background:#fff;color:var(--text);box-shadow:0 1px 2px rgba(15,27,54,.04);
@@ -109,6 +121,12 @@ header.nav.stuck{border-bottom-color:var(--stroke);background:rgba(255,255,255,.
   .hero-grid{grid-template-columns:1fr;gap:34px}
   .hero-video{justify-self:start;width:min(232px,58vw)}
 }
+/* who: photo, name and role, ahead of the tagline */
+.who{display:flex;align-items:center;gap:18px}
+.who .avatar-lg{margin-bottom:0}
+.who-name{margin:0;font-size:clamp(1.35rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
+.who-role{margin:3px 0 0;font-size:.98rem;color:var(--text-dim)}
+.who + h1{margin-top:28px}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;
   color:var(--accent);padding:6px 13px;border-radius:999px;border:1px solid rgba(37,99,235,.28);background:rgba(37,99,235,.08)}
 h1{font-size:clamp(2.5rem,7.2vw,5rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:24px 0 0;
@@ -181,8 +199,19 @@ h2{font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.028em;font-weight:750;m
 .principle .ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:16px;
   background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 16px rgba(37,99,235,.28)}
 .principle .ico svg{width:19px;height:19px;stroke:#fff}
-.principle h4{margin:0 0 8px;font-size:1rem;font-weight:700;letter-spacing:-.012em;color:var(--text)}
+.principle h3{margin:0 0 8px;font-size:1rem;font-weight:700;letter-spacing:-.012em;color:var(--text)}
 .principle p{margin:0;color:var(--text-dim);font-size:.9rem}
+
+.about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about-copy p{margin:0 0 16px;font-size:1.05rem;color:var(--text-dim);max-width:62ch}
+.about-copy p:first-child{color:var(--text)}
+.about-copy p:last-child{margin-bottom:0}
+.focus{padding:24px 26px;border-radius:var(--radius);border:1px solid var(--stroke);background:var(--surface);box-shadow:var(--shadow)}
+.focus h3{margin:0 0 14px;font-size:.78rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.focus ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.focus li{display:flex;gap:10px;align-items:baseline;font-size:.95rem;color:var(--text)}
+.focus li::before{content:"";width:7px;height:7px;border-radius:50%;flex:none;transform:translateY(-1px);background:linear-gradient(135deg,var(--accent),var(--accent-3))}
 
 .quote-band{padding:clamp(48px,7vh,88px) 0}
 .pull{text-align:center;position:relative}
@@ -248,9 +277,15 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
 
 <header class="nav">
   <div class="wrap nav-in">
-    <span class="brand"><span class="avatar avatar-sm" role="img" aria-label="John Morrissey"></span>john&#8209;morrissey</span>
+    <span class="brand"><span class="avatar avatar-sm" aria-hidden="true"></span>John Morrissey</span>
+    <a class="link" href="#about">About</a>
     <a class="link" href="#work">Work</a>
     <a class="link" href="#approach">Approach</a>
+    <a class="link" href="#contact">Contact</a>
+    <a class="btn" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zm4.94 12.24V6.17H2.54v7.22h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.01-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.21.66 1.21 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.2v.02h-.01l.01-.02V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4z"/></svg>
+      LinkedIn
+    </a>
     <a class="btn" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">
       <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
       GitHub
@@ -264,17 +299,22 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   <div class="wrap hero">
     <div class="hero-grid">
       <div class="hero-copy">
-        <div class="avatar avatar-lg" role="img" aria-label="John Morrissey"></div>
-        <span class="eyebrow">Learning technology &middot; University of Limerick</span>
+        <div class="who">
+          <div class="avatar avatar-lg" role="img" aria-label="Photo of John Morrissey"></div>
+          <div>
+            <p class="who-name">John Morrissey</p>
+            <p class="who-role">Educational Technology &middot; Project Manager &middot; VLE Innovation &middot; Higher Education (UL)</p>
+          </div>
+        </div>
         <h1>Small tools that<br>make Brightspace<br><span class="accent">do more.</span></h1>
         <p class="lede">
-          Self-contained widgets and utilities for Brightspace&nbsp;(D2L) — built on the platform's
-          own APIs, running entirely in the browser on your own session. No servers, no API keys,
-          no build step. Paste one file into a course and it works.
+          I build free, open-source tools for Brightspace&nbsp;(D2L) that take the slow, fiddly jobs
+          off lecturers and administrators. Each one is a single HTML file you paste into a course:
+          no servers, no API keys, no IT ticket.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="#work">Browse the work &rarr;</a>
-          <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID profile</a>
+          <a class="btn primary" href="#work">See the tools &rarr;</a>
+          <a class="btn" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Connect on LinkedIn</a>
         </div>
       </div>
 
@@ -287,21 +327,59 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
     </div>
 
     <div class="stats rv" id="stats">
-      <div class="stat"><div class="n" data-stat="repos">—</div><div class="l">Public repos</div></div>
-      <div class="stat"><div class="n" data-stat="stars">—</div><div class="l">Stars</div></div>
-      <div class="stat"><div class="n" data-stat="deps">0</div><div class="l">Runtime deps</div></div>
-      <div class="stat"><div class="n" data-stat="updated">—</div><div class="l">Last push</div></div>
+      <div class="stat"><div class="n" data-stat="tools">6</div><div class="l">Open-source tools</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">HTML file each</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Servers or API keys</div></div>
+      <div class="stat"><div class="n">Any</div><div class="l">Brightspace instance</div></div>
     </div>
   </div>
+
+  <!-- ── ABOUT ──────────────────────────────────────────── -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="sec-num">01 / ABOUT</span>
+          <h2>About me</h2>
+        </div>
+      </div>
+      <div class="about rv">
+        <div class="about-copy">
+          <p>I work in educational technology at the University of Limerick, managing projects and
+             driving innovation in our VLE, Brightspace&nbsp;(D2L), alongside the lecturers and
+             administrators who use it every day.</p>
+          <p>Over summer 2026 I built and open-sourced six tools, the Summer Series, for jobs that
+             Brightspace's own screens make slow: setting up groups and uploading grades in bulk,
+             spotting assessment deadlines piling up across a programme, seeing who replies to whom
+             in a discussion, and putting names to faces in a new class.</p>
+          <p>Each one runs on Brightspace's own APIs with the viewer's existing login, so it works on
+             any Brightspace instance and needs nothing more than an HTML editor to install.</p>
+        </div>
+        <div class="focus">
+          <h3>What I work on</h3>
+          <ul>
+            <li>VLE innovation in higher education</li>
+            <li>Educational technology project management</li>
+            <li>Brightspace (D2L) tools and widgets</li>
+            <li>Bulk admin: groups, grades and feedback</li>
+            <li>Learning analytics and data visualisation</li>
+            <li>Brightspace Valence and LP REST APIs</li>
+            <li>Python and Power Automate workflows</li>
+            <li>Short explainer videos for staff</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── WORK ───────────────────────────────────────────── -->
   <section id="work">
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <span class="sec-num">01 / WORK</span>
-          <h2>Projects</h2>
-          <p>Pulled live from GitHub, so descriptions, stars and dates are always current.</p>
+          <span class="sec-num">02 / WORK</span>
+          <h2>The tools</h2>
+          <p>Six free tools for Brightspace. Click a screenshot to see more, or open the source on GitHub.</p>
         </div>
       </div>
 
@@ -315,7 +393,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <span class="sec-num">02 / APPROACH</span>
+          <span class="sec-num">03 / APPROACH</span>
           <h2>How these are built</h2>
           <p>Every project follows the same constraints. They are what make the tools deployable by
              someone who has a course, an HTML editor, and no IT ticket.</p>
@@ -325,25 +403,25 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
       <div class="principles rv">
         <div class="principle">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/><path d="M9 9v11"/></svg></div>
-          <h4>One file, no build</h4>
+          <h3>One file, no build</h3>
           <p>Markup, styles, scripts and icons live in a single HTML file. Copy, paste into a
              Brightspace page or widget, save. Nothing to compile, nothing to host.</p>
         </div>
         <div class="principle">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-          <h4>Your session, your permissions</h4>
+          <h3>Your session, your permissions</h3>
           <p>Calls ride on the viewer's own Brightspace login. Nobody sees anything the platform
              wouldn't already show them, and no credentials are stored anywhere.</p>
         </div>
         <div class="principle">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
-          <h4>Portable across instances</h4>
+          <h3>Portable across instances</h3>
           <p>API versions are auto-detected and course context comes from Brightspace's own
              replacement strings. Nothing is hard-coded to one institution.</p>
         </div>
         <div class="principle">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-          <h4>Read-only unless asked</h4>
+          <h3>Read-only unless asked</h3>
           <p>Reporting tools only ever issue GETs. The ones that do write — grades, groups, course
              status — say so plainly and preview the change first.</p>
         </div>
@@ -356,7 +434,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
     <div class="wrap">
       <figure class="pull rv">
         <blockquote>A good tool for a busy lecturer is one they can paste in and forget about — no install, no ticket, no training. If it needs a manual, I haven't finished it.</blockquote>
-        <figcaption><b>John Morrissey</b><span>Learning Technology &middot; University of Limerick</span></figcaption>
+        <figcaption><b>John Morrissey</b><span>Educational Technology &middot; University of Limerick</span></figcaption>
       </figure>
     </div>
   </section>
@@ -365,12 +443,14 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   <section id="contact">
     <div class="wrap">
       <div class="contact rv">
-        <span class="sec-num">03 / CONTACT</span>
-        <h2>Take one for a spin</h2>
-        <p>Everything here is open source under CC&nbsp;BY-NC-SA&nbsp;4.0. Fork it, adapt it to your
-           instance, or get in touch if something doesn't fit your setup.</p>
+        <span class="sec-num">04 / CONTACT</span>
+        <h2>Let's talk</h2>
+        <p>Using Brightspace and want to try one of these, adapt it for your institution, or work on
+           something together? Message me on LinkedIn. Everything here is free and open source under
+           CC&nbsp;BY-NC-SA&nbsp;4.0.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">All repositories</a>
+          <a class="btn primary" href="https://www.linkedin.com/in/johnwmorrissey/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+          <a class="btn" href="https://github.com/John-Morrissey-UL" target="_blank" rel="noopener">All repositories</a>
           <a class="btn" href="https://orcid.org/0009-0005-4153-3908" target="_blank" rel="noopener">ORCID</a>
         </div>
       </div>
@@ -518,7 +598,8 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   function cardHTML(r){
     var c = CURATED[r.name.toLowerCase()] || {};
     var title = c.title || prettyName(r.name);
-    var desc  = esc(r.description) || c.desc || "No description yet — open the repository for details.";
+    // the hand-written blurb first: GitHub's one-liners are much thinner
+    var desc  = c.desc || esc(r.description) || "No description yet — open the repository for details.";
     var tags  = c.tags || [];
     var lang  = r.language || "—";
     var color = LANG_COLOR[lang] || "#6b7484";
@@ -533,12 +614,11 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
              inner + (n>1?'<span class="shotcount">'+n+' shots</span>':'<span class="expand">\u2922</span>') + '</button>';
     }
 
-    return '<article class="card'+(c.featured?" featured":"")+'" data-lang="'+esc(lang)+'" tabindex="0">'+
+    return '<article class="card'+(c.featured?" featured":"")+'" data-lang="'+esc(lang)+'">'+
       shot+
       '<div class="card-top">'+
         '<div>'+
           '<h3><a href="'+esc(r.html_url)+'" target="_blank" rel="noopener">'+esc(title)+'</a></h3>'+
-          '<div class="repo">'+esc(r.name)+'</div>'+
         '</div>'+
         (c.badge?'<span class="badge">'+esc(c.badge)+'</span>':'')+
       '</div>'+
@@ -546,8 +626,8 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
       (tags.length?'<div class="tags">'+tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join("")+'</div>':'')+
       '<div class="card-foot">'+
         '<span class="meta"><span class="lang-dot" style="background:'+color+'"></span>'+esc(lang)+'</span>'+
-        '<span class="meta">'+ICON_STAR+' '+(r.stargazers_count||0)+'</span>'+
-        '<span class="meta">'+ago(r.pushed_at)+'</span>'+
+        (r.stargazers_count ? '<span class="meta">'+ICON_STAR+' '+r.stargazers_count+'</span>' : '')+
+        '<span class="meta">Updated '+ago(r.pushed_at)+'</span>'+
         '<a class="src spacer" href="'+esc(r.html_url)+'" target="_blank" rel="noopener">'+ICON_GH+' Source</a>'+
       '</div>'+
     '</article>';
@@ -607,13 +687,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   }
 
   function setStats(list){
-    var stars = list.reduce(function(a,r){return a+(r.stargazers_count||0)},0);
-    var newest = list.reduce(function(a,r){
-      return (!a || new Date(r.pushed_at)>new Date(a)) ? r.pushed_at : a;
-    },null);
-    countUp($('[data-stat="repos"]'), list.length, 1000);
-    countUp($('[data-stat="stars"]'), stars, 1000);
-    $('[data-stat="updated"]').textContent = ago(newest);
+    countUp($('[data-stat="tools"]'), list.length, 1000);  // the other three are fixed facts
   }
 
   function boot(list){
@@ -667,7 +741,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   },{passive:true});
 
   /* Lightbox */
-  var lbEl,lbStage,lbCount,lbPrev,lbNext,lbItems=[],lbIdx=0;
+  var lbEl,lbStage,lbCount,lbPrev,lbNext,lbItems=[],lbIdx=0,lbReturn=null;
   function buildLightbox(){
     lbEl=document.createElement("div"); lbEl.className="lb"; lbEl.hidden=true;
     lbEl.innerHTML='<button class="lb-close" aria-label="Close">\u2715</button>'+
@@ -691,17 +765,21 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
   }
   function openItems(items){
     if(!items || !items.length) return;
-    lbItems=items;
+    lbItems=items; lbReturn=document.activeElement;
     lbShow(0); lbEl.hidden=false; document.body.style.overflow="hidden";
     lbEl.querySelector(".lb-close").focus();
   }
   function openLightbox(repo){
     var m=MEDIA[repo]; if(!m) return;
+    var name=(CURATED[repo]&&CURATED[repo].title)||prettyName(repo);
     var items=[]; if(m.video) items.push({t:"video",s:m.video});
-    (m.imgs||[]).forEach(function(s){items.push({t:"img",s:s})});
+    (m.imgs||[]).forEach(function(s){items.push({t:"img",s:s,alt:name+" screenshot"})});
     openItems(items);
   }
-  function closeLightbox(){ lbEl.hidden=true; lbStage.innerHTML=""; document.body.style.overflow=""; }
+  function closeLightbox(){
+    lbEl.hidden=true; lbStage.innerHTML=""; document.body.style.overflow="";
+    if(lbReturn&&lbReturn.focus) lbReturn.focus();  // back to the screenshot or video that opened it
+  }
   function lbShow(i){
     lbIdx=(i+lbItems.length)%lbItems.length; var it=lbItems[lbIdx];
     /* Tool demos are silent screen recordings, so they loop muted. The series
@@ -712,7 +790,7 @@ footer{border-top:1px solid var(--stroke);padding:28px 0;margin-top:40px;display
       ? (it.sound
           ? '<video src="'+it.s+'" poster="'+(it.poster||'')+'" controls autoplay playsinline></video>'
           : '<video src="'+it.s+'" controls autoplay loop muted playsinline></video>')
-      : '<img src="'+it.s+'" alt="">';
+      : '<img src="'+it.s+'" alt="'+esc((it.alt||"Screenshot")+" "+(lbIdx+1)+" of "+lbItems.length)+'">';
     var multi=lbItems.length>1;
     lbPrev.style.display=lbNext.style.display=multi?"":"none";
     lbCount.style.display=multi?"":"none";
